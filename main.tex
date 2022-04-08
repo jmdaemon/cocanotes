@@ -1,0 +1,26 @@
+\documentclass{book}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+\usepackage{blindtext}
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\begin{document}
+
+\input{cover}
+%\input{acknowledge}
+
+%\maketitle
+
+%\subfile{chapters/intro}
+
+\tableofcontents
+
+\part{Fundamentals of Discrete Mathematics}
+\subfile{parts/01/chapters/chap01}
+
+\end{document}
