@@ -1,18 +1,15 @@
 \documentclass[../../../main.tex]{subfiles}
 \graphicspath{{\subfix{./figures/}}}
 
-%\begin{document}
 \begin{document}
 
 \chapter{Fundamentals of Logic}
 \label{chap:logic}
 
-%\section{2.1}
-%\section{Definition of a Proposition}
 \section{Basic Connectives and Truth Tables}
 
 \subsection{Definition of a Proposition}
-%\definition{Propositions are declarative statements that are true or false but not both}
+
 \begin{definition}[Propositions]
 Propositions are declarative statements that are true or false but not both
 \end{definition}
@@ -58,82 +55,59 @@ New propositions can be formed by
         \end{itemize}
 \end{itemize}
 
-Note that the statement: "x is an integer" is not a proposition
-because its truth value is indeterminable until a value is assigned 
+Note that the statement: "x is an integer"
+is not a proposition because its truth value
+is indeterminable until a value is assigned 
 to x.
 
 \subsection{Truth Tables}
 
-Here we define the following:
-
 Let
 
-\begin{tabular}{@{}l}
-    0: True \\
-    1: False
-\end{tabular}
+%\begin{tabular}{@{}l}
+    %0: True \\
+    %1: False
+%\end{tabular}
+\begin{tabularx}{0.80\linewidth}{@{}lX}
+    & 0: True \\
+    & 1: False
+\end{tabularx}
 
-
-%\begin{table}[!htbp]
 \begin{table}[!htb]
-    %\begin{minipage}{.5\linewidth}
     \caption{Truth Tables for Logical Connectives}
-    %\begin{minipage}{0.5\textwidth}
-    %\begin{subtable}{0.5\textwidth}
+    \centering
+    % Negation
+    \begin{subtable}{0.15\linewidth}
+        \centering
+        \caption{Negation}
+        \label{tbl:logical-negation}
+        $\begin{array}{ *{2}{c} }
+            % 2 centered columns
+            \toprule \\
+            p & \neg q \\
+            \midrule \\
+            0 & 1 \\
+            1 & 0 \\
+            \bottomrule
+        \end{array}$
+    \end{subtable}%
+    % Other Logical Connectives
     \begin{subtable}{0.5\linewidth}
-%\begin{table}
-
-    %\centering
-        %\rowcolors{2}{}{gray!10}
-    %\begin{tabular}{ $*{2}{mc}$ }
-    %\begin{tabular}{ *{2}{mc} }
-    %$\begin{array}{ *{2}{|c|} }
-        %\centering
-    $\begin{array}{ *{2}{c} }
-        % 2 Columns
-        \toprule \\
-        p & \neg q \\
-        \midrule \\
-        0 & 1 \\
-        1 & 0 \\
-        \bottomrule
-    %\end{tabular}
-    \end{array}$
-    \caption{Negation}
-    \label{tbl:logical-negation}
-    %\caption{Truth Values for Negation}
-%\end{minipage}
-\end{subtable}%
-
-%\end{table}
-
-    %\centering
-        %\rowcolors{2}{}{gray!10}
-    %\begin{tabular}{ $*{7}{mc}$ }
-    %\begin{tabular}{ *{7}{mc} }
-    %\begin{array}{ *{7}{$}{c}{$} }
-%\begin{minipage}{0.5\textwidth}
-%\begin{subtable}{0.5\textwidth}
-    \begin{subtable}{0.5\linewidth}
-        %\centering
-    $\begin{array}{ *{7}{c} }
-        % 7 Columns
-        \toprule \\
-        p & q & p \land q & p \lor q & p \lxor q & p \implies q & p \iff q \\
-        \midrule \\
-        0 & 0 & 0 & 0 & 0 & 1 & 1 \\
-        0 & 1 & 0 & 1 & 1 & 1 & 0 \\
-        1 & 0 & 0 & 1 & 1 & 0 & 0 \\
-        1 & 1 & 1 & 1 & 0 & 1 & 1 \\
-        \bottomrule
-    %\end{tabular}
-    \end{array}$
-    %\label{tab:tbl1}
-    \caption{Other Logical Connectives}
-    \label{tbl:logic-connectives}
-    %\caption{Truth Tables for Logical Connectives}
-%\end{minipage}
-\end{subtable}
+        \centering
+        \caption{Other Logical Connectives}
+        \label{tbl:logic-connectives}
+        $\begin{array}{ *{7}{c} }
+            % 7 centered columns
+            \toprule \\
+            p & q & p \land q & p \lor q & p \lxor q & p \implies q & p \iff q \\
+            \midrule \\
+            0 & 0 & 0 & 0 & 0 & 1 & 1 \\
+            0 & 1 & 0 & 1 & 1 & 1 & 0 \\
+            1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 1 & 0 & 1 & 1 \\
+            \bottomrule
+        \end{array}$
+    \end{subtable}
 \end{table}
 
 Note:
