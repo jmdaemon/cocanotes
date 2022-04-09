@@ -1,7 +1,8 @@
 \documentclass[table]{book}
 
-% ==== Preamble Start ==== 
-\author{Joseph M. Diza} % Sets the author name, can be referenced with \@author
+% ==== Preamble Start
+% Sets the author name, can be referenced with \@author
+\author{Joseph M. Diza}
 
 % ==== Packages
 % xcolor must be here because it conflicts with some of the packages in coco
@@ -15,7 +16,7 @@
 \usepackage{parskip}                    % Zero parindent, nonzero parskip
 \graphicspath{{figures/}}               % Set the global figures directory
 
-%% Bibliography
+% Bibliography
 \usepackage[
     sorting=nyt,
     style=alphabetic
@@ -23,10 +24,9 @@
 \usepackage{csquotes}                   % Typeset quoted texts according to the rules of the main language
 \usepackage[noabbrev]{cleveref}         % Better references, disable abbreviations (equation~(1) vs eq.~(1))
 \usepackage[nottoc]{tocbibind}          % Add Bibliography to Table of Contents
-%\usepackage{tocbibind}                  % Add Bibliography to Table of Contents
 \addbibresource{bibliography.bib}       % Add our bibliography
 
-%% Theorems
+% Theorems
 \usepackage{thmtools}                   % Support for custom theorems
 \usepackage{thm-restate}                % Restate a theorem's definition verbatim
 \usepackage[framemethod=TikZ]{mdframed} % Use breakable framed and coloured boxes
@@ -34,7 +34,7 @@
 \mdfsetup{skipabove=1em, skipbelow=0em, innertopmargin=12pt, innerbottommargin=8pt}
 \theoremstyle{definition}
 
-%\makeatletter
+\makeatletter
 
 % Create theorem styles
 \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
@@ -58,40 +58,33 @@
 \declaretheorem[sibling=definition  , style=thmbluebox  , name=Nonexample]{noneg}
 \declaretheorem[sibling=definition  , style=thmblueline , name=Remark]{remark}
 
-%\declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
+\declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
 %\declaretheorem[numbered=no, style=thmproofbox, name=Proof]{proof}
 \declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
 
-% Math mode versions of columns
-% mc: math mode center
-%\newcolumntype{mc}{>{$}c<{$}}
-%\newcolumntype{mc}{{$}c{$}}
-
 % Logical Connectives
 % Use lor, land, and lxor
-\providecommand{\lxor}{\veebar}
-
-% Document Formatting
-%\setlength{\parindent}{0em}
-%\setlength{\parskip}{1em}
+\providecommand{\lxor}{\veebar} % Provide \lxor command
 
 % Multi project builds
 \usepackage{subfiles} % Best loaded last in the preamble
 
-% -=- Preamble End -=-
+% ==== Preamble End
 \begin{document}
 
 % Insert cover page
-
 \thispagestyle{empty}
 \input{cover}
 \thispagestyle{plain}
 \tableofcontents
-%\cleardoublepage
+\cleardoublepage
 
 \part{Fundamentals of Discrete Mathematics}
 \subfile{parts/01/chapters/chap01}
 \subfile{parts/01/chapters/chap02}
+\part{Further Topics in Enumeration}
+\part{Graph Theory}
+\part{Modern Applied Algebra}
 
 \end{document}
