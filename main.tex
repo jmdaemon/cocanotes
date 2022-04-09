@@ -3,31 +3,24 @@
 % ==== Preamble Start ==== 
 \author{Joseph M. Diza} % Sets the author name, can be referenced with \@author
 
-
 % ==== Packages
 % xcolor must be here because it conflicts with some of the packages in coco
-\usepackage[table,svgnames]{xcolor}           % Enable coloring of tables, and use dvips,svg color sets
-\usepackage{coco}       % Use common course utilities and macros
-\usepackage{bookmark}   % Better bookmarking package
-
-%% Graphics
-% Note that xcolor must be placed here before the rest of the packages
-%\usepackage[table]{xcolor}  % Enable coloring of tables, and use dvips,svg color sets
-%\usepackage[usenames,table,dvipsnames]{xcolor}  % Enable coloring of tables, and use dvips,svg color sets
-%\usepackage[table]{xcolor}  % Enable coloring of tables, and use dvips,svg color sets
-\usepackage{float}                  % Better floating interface for figures, tables
-\graphicspath{{figures/}}           % Set the global figures directory
+\usepackage[table,svgnames]{xcolor}     % Enable coloring of tables, and use dvips,svg color sets
+\usepackage{coco}                       % Use common course utilities and macros
+\usepackage{bookmark}                   % Better bookmarking package
+\usepackage{float}                      % Better floating interface for figures, tables
+\graphicspath{{figures/}}               % Set the global figures directory
 
 %% Bibliography
 \usepackage[
     sorting=nyt,
     style=alphabetic
-]{biblatex}                         % Use BibLatex
-\usepackage{csquotes}               % Typeset quoted texts according to the rules of the main language
-\usepackage[noabbrev]{cleveref}     % Better references, disable abbreviations (equation~(1) vs eq.~(1))
-\usepackage[nottoc]{tocbibind}      % Add Bibliography to Table of Contents
-\addbibresource{bibliography.bib}   % Add our bibliography
-
+    ]{biblatex}                         % Use BibLatex
+\usepackage{csquotes}                   % Typeset quoted texts according to the rules of the main language
+\usepackage[noabbrev]{cleveref}         % Better references, disable abbreviations (equation~(1) vs eq.~(1))
+\usepackage[nottoc]{tocbibind}          % Add Bibliography to Table of Contents
+%\usepackage{tocbibind}                  % Add Bibliography to Table of Contents
+\addbibresource{bibliography.bib}       % Add our bibliography
 
 %% Theorems
 \usepackage{thmtools}                   % Support for custom theorems
@@ -39,60 +32,45 @@
 
 %\makeatletter
 
+% Create theorem styles
 \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmredbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
+    mdframed={rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol]{thmproofbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
+    mdframed={nobreak, rightline=false, topline=false, bottomline=false}]{thmexplanationbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
+    mdframed={nobreak, rightline=false, topline=false, bottomline=false}]{thmexplanationbox}
 
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmredbox}
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
-    %mdframed={rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol]{thmproofbox}
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
-    %mdframed={nobreak, rightline=false, topline=false, bottomline=false}]{thmexplanationbox}
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no,
-    %mdframed={nobreak, rightline=false, topline=false, bottomline=false}]{thmexplanationbox}
-
-
+% Assign styles to theorems
 \declaretheorem[numberwithin=chapter, style=thmgreenbox , name=Definition]{definition}
-%\declaretheorem[sibling=definition  , style=thmredbox   , name=Corollary]{corollary}
-%\declaretheorem[sibling=definition  , style=thmredbox   , name=Proposition]{prop}
-%\declaretheorem[sibling=definition  , style=thmredbox   , name=Theorem]{theorem}
-%\declaretheorem[sibling=definition  , style=thmredbox   , name=Lemma]{lemma}
-%\declaretheorem[sibling=definition  , style=thmbluebox  , name=Example]{eg}
-%\declaretheorem[sibling=definition  , style=thmbluebox  , name=Nonexample]{noneg}
-%\declaretheorem[sibling=definition  , style=thmblueline , name=Remark]{remark}
+\declaretheorem[sibling=definition  , style=thmredbox   , name=Corollary]{corollary}
+\declaretheorem[sibling=definition  , style=thmredbox   , name=Proposition]{prop}
+\declaretheorem[sibling=definition  , style=thmredbox   , name=Theorem]{theorem}
+\declaretheorem[sibling=definition  , style=thmredbox   , name=Lemma]{lemma}
+\declaretheorem[sibling=definition  , style=thmbluebox  , name=Example]{eg}
+\declaretheorem[sibling=definition  , style=thmbluebox  , name=Nonexample]{noneg}
+\declaretheorem[sibling=definition  , style=thmblueline , name=Remark]{remark}
 
 %\declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
-
-%\declaretheorem[numbered=no, style=thmproofbox, name=Proof]{replacementproof}
-%\declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
-%\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
-
-%% Commands
-
-
-%% Packages Configurations
-
-
-%% Multi project builds
-\usepackage{subfiles} % Best loaded last in the preamble
+%\declaretheorem[numbered=no, style=thmproofbox, name=Proof]{proof}
+\declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
+\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
 
 % Document Formatting
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
-%% Custom definitions
-%\newtheorem{define}{Definition}[section]
+% Multi project builds
+\usepackage{subfiles} % Best loaded last in the preamble
 
 % -=- Preamble End -=-
 \begin{document}
 
-\input{cover} % Insert cover page
-%\input{acknowledge}
-
-%\maketitle
-
-%\subfile{chapters/intro}
-
+% Insert cover page
+\input{cover}
 \tableofcontents
 
 \part{Fundamentals of Discrete Mathematics}
