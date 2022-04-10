@@ -1,6 +1,10 @@
 \documentclass[../../../main.tex]{subfiles}
 \graphicspath{{\subfix{../../../figures/}, ./figures}}
 
+% Define new terminology
+\newcommand{\taut}{T_0}
+\newcommand{\contra}{F_0}
+
 \begin{document}
 
 \chapter{Fundamentals of Logic}
@@ -152,11 +156,11 @@ Note:
 \end{table}
 
 As a result of this truth table, ambigious statements
-such as $p \lor q \and r$ are to be avoided since their
+such as $p \lor q \land r$ are to be avoided since their
 meaning results in different propositions.
 
 \begin{table}[!htb]
-\caption{Tautology \& Contradiction}
+    \caption{Tautology \& Contradiction}
     \centering
     % Truth Tables for a Tautology \& Contradiction
     \begin{subtable}{\linewidth}
@@ -187,12 +191,10 @@ A compound statement that is false for all truth value assignements for its indi
 
 We will use the following symbols to denote these two terms:
 
-\newcommand{\T}{T_0}
-\newcommand{\F}{F_0}
 
 \begin{tabularx}{0.80\linewidth}{@{}lX}
-    & $\T$: Tautology \\
-    & $\F$: Contradiction
+    & $\taut$: Tautology \\
+    & $\contra$: Contradiction
 \end{tabularx}
 
 \subsection{Premises \& Arguments}
@@ -217,12 +219,12 @@ Where the implication is
     (p_1 \land p_2 \land p_3 \land \ldots \land p_n) \to q
 \end{align*}
 
-where the hypothesis is the conjunction of the premises.
+and the hypothesis is the conjunction of the premises.
 
 Note that:
 \begin{itemize}
     \item If any of $p_n$ are false, then the implication is always true
-    \item If every p_n has the truth value 1, and q also has truth value 1,
+    \item If every $p_n$ has the truth value 1, and q also has truth value 1,
         then the implication is a tautology and we have a valid argument.
 \end{itemize}
 
