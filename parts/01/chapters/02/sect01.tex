@@ -1,9 +1,6 @@
 \documentclass[../../../../main.tex]{subfiles}
 \graphicspath{{\subfix{../../../../figures/}, ./figures}}
 
-% Define new terminology
-\newcommand{\taut}{T_0}
-\newcommand{\contra}{F_0}
 
 \begin{document}
     
@@ -131,7 +128,7 @@ Note:
     % Order of Operations of Compound Statements
     \begin{subtable}{\linewidth}
         \centering
-        \caption{Order of Operations of Compound Statements}
+        \caption*{Order of Operations of Compound Statements}
         \label{tbl:logical-order-of-ops}
         $\begin{array}{ *{7}{c} }
             % 7 centered columns
@@ -161,7 +158,7 @@ meaning results in different propositions.
     % Truth Tables for a Tautology \& Contradiction
     \begin{subtable}{\linewidth}
         \centering
-        \caption{Truth Tables for a Tautology \& Contradiction}
+        \caption*{Truth Tables for a Tautology \& Contradiction}
         \label{tbl:tautology-contradiction}
         $\begin{array}{ *{7}{c} }
             % 7 centered columns
@@ -186,6 +183,10 @@ A compound statement that is false for all truth value assignements for its indi
 \end{definition}
 
 We will use the following symbols to denote these two terms:
+
+% Define new terminology
+\newcommand\taut{T_0}
+\newcommand\contra{F_0}
 
 \begin{tabularx}{0.80\linewidth}{@{}lX}
     & $\taut$: Tautology \\
