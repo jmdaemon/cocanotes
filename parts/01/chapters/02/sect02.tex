@@ -1,0 +1,102 @@
+\documentclass[../../../../main.tex]{subfiles}
+\graphicspath{{\subfix{../../../../figures/}, ./figures}}
+
+\begin{document}
+\section{Logical Equivalence: The Laws of Logic}
+
+In all areas of maths it is vital to understand whether the
+entities we are studying are equal or essentially the same.
+
+\newcommand\negporq{\neg p \lor q}
+\newcommand\ptoq{p \to q}
+
+For example take these two statements $\negporq$
+and $\ptoq$
+
+\begin{table}
+    \centering
+    \caption*{Truth Table for Equivalent Statements}
+    \label{tbl:equivalent-statements}
+    \begin{subtable}{\linewidth}
+        \centering
+        $\begin{array}{ *{5}{c} }
+            % 5 centered columns
+            \toprule \\
+            p & q & \neg p & \negporq & \ptoq \\
+            \midrule \\
+            0 & 0 & 1 & 1 & 1 \\
+            0 & 1 & 1 & 1 & 1 \\
+            1 & 0 & 0 & 0 & 0 \\
+            1 & 1 & 0 & 1 & 1 \\
+            \bottomrule
+        \end{array}$
+    \end{subtable}%
+\end{table}
+
+Here statements $\negporq$ and $\ptoq$
+are said to be logically equivalent.
+
+\begin{definition}[Logical Equivalence]
+    Two statements $s_1$, $s_2$ are \underline{logically equivalent} when $s_1$ is true
+    exactly when $s_2$ is true, and false exactly when $s_2$ is false.
+\end{definition}
+
+We use $\iff$ to denote logical equivalency.
+
+When $s_1 \iff s_2$ we can represent $s_1$ using the same truth table as $s_2$,
+since they both have the same truth values.
+
+Thus we can represent the connective implication in terms of negation and disjunction.
+
+\begin{table}[!htb]
+    \centering
+    \caption*{Logically equivalent truth table for implication}
+    \label{tbl:log-eql-bicond}
+    \begin{subtable}{\linewidth}
+        \centering
+        $\begin{array}{ *{6}{c} }
+            % 6 centered columns
+            \toprule \\
+            p & q & p \to q & q \to p & (p \to q) \land (q \to p) & p \iff q \\
+            \midrule \\
+            0 & 0 & 1 & 1 & 1 & 1 \\
+            0 & 1 & 1 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 1 & 1 & 1 \\
+            \bottomrule
+        \end{array}$
+    \end{subtable}%
+\end{table}
+
+We can also express the exclusive or connective in terms of conjunctions and disjunctions.
+
+\begin{table}[!htb]
+    \centering
+    \caption*{Logically equivalent truth table for exclusive or}
+    \label{tbl:log-eql-xor}
+    \begin{subtable}{\linewidth}
+        \centering
+        $\begin{array}{ *{7}{c} }
+            % 7 centered columns
+            \toprule \\
+            p & q & p \lxor q & p \lor q & p \land q & \neg (p \land q) & (p \lor q) \land \neg (p \land q) \\
+            \midrule \\
+            0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 1 & 1 & 1 & 0 & 1 & 1 \\
+            1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 1 & 1 & 0 & 0 \\
+            \bottomrule
+        \end{array}$
+    \end{subtable}%
+\end{table}
+
+
+\subsection{The Laws of Logic}
+
+%\begin{tabularx}{0.80\linewidth}{@{}lX}
+    %\begin{itemize}
+        %\item asdf & asdf
+    %\end{itemize}
+%\end{tabularx}
+
+\end{document}
