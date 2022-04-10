@@ -8,7 +8,7 @@
 % xcolor must be here because it conflicts with some of the packages in coco
 \usepackage[table,svgnames]{xcolor}     % Enable coloring of tables, and use dvips,svg color sets
 \usepackage{coco}                       % Use common course utilities and macros
-\usepackage{discm}                       % Use discrete math symbols
+\usepackage{discm}                      % Use discrete math symbols
 \usepackage{bookmark}                   % Better bookmarking package
 \usepackage{float}                      % Better floating interface for figures, tables
 \usepackage{tabularx}                   % Flexible table environment
@@ -62,7 +62,7 @@
 \declaretheorem[sibling=definition  , style=thmblueline , name=Remark]{remark}
 
 \declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
-%\declaretheorem[numbered=no, style=thmproofbox, name=Proof]{proof}
+\declaretheorem[numbered=no, style=thmproofbox, name=Proof]{prove}
 \declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
 
@@ -77,9 +77,9 @@
 \begin{document}
 
 % Insert cover page
-\thispagestyle{empty}
+\thispagestyle{empty} % Turn off styling for main page
 \input{cover}
-\thispagestyle{plain}
+\thispagestyle{plain} % Reenable styling for our book
 \tableofcontents
 \cleardoublepage
 
