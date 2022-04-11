@@ -90,13 +90,138 @@ We can also express the exclusive or connective in terms of conjunctions and dis
     \end{subtable}%
 \end{table}
 
-
+\newpage
 \subsection{The Laws of Logic}
 
-%\begin{tabularx}{0.80\linewidth}{@{}lX}
-    %\begin{itemize}
-        %\item asdf & asdf
-    %\end{itemize}
-%\end{tabularx}
+% Requirements
+% A caption for the table
+% Pairs of vertically aligned statements
+% Two columns
+\begin{table}[!htb]
+    \caption*{For any primitive statements $p, q, r$, any tautology $\taut$, and any contradiction $\contra$}
+    \centering
+    \begin{subtable}{\linewidth}
+        \centering
+        \label{tbl:laws-of-logic}
+        $\begin{array}{ *{2}{l} }
+            \toprule \\
+            \neg \neg p \iff p & \text{Double Negation} \\
+            \\
+            \neg(p \lor q) \iff \neg p \land \neg q & \text{DeMorgan's Laws} \\
+            \neg(p \land q) \iff \neg p \lor \neg q & \\
+            \\
+            p \lor q \iff q \lor p & \text{Commutative Laws} \\
+            p \land q \iff q \land p & \\
+            \\
+            p \lor (q \lor r) \iff (p \lor q) \lor r & \text{Associative Laws} \\ 
+            p \land (q \land r) \iff (p \land q) \land r & \\
+            \\
+            p \lor (q \land r) \iff (p \lor q) \land (p \lor r) & \text {Distributive Laws} \\
+            p \land (q \lor r) \iff (p \land q) \lor (p \land r) & \\
+            \\
+            p \lor p \iff p & \text {Idempotent Laws} \\
+            p \land p \iff p & \\
+            \\
+            p \lor \contra \iff p & \text{Identity Laws} \\
+            p \land \taut \iff p & \\
+            \\
+            p \lor \neg p \iff \taut & \text{Inverse Laws} \\
+            p \land \neg p \iff \contra & \\
+            \\
+            p \lor \taut \iff \taut & \text {Domination Laws} \\
+            p \land \neg p \iff \contra & \\
+            \\
+            p \lor (p \land q) \iff p & \text{Absorption Laws} \\
+            p \land (p \lor q) \iff p & \\
+            %\multirow{2}{*}{} & \neg \neg p \iff p & \text{} & \text{Double Negation} \\
+            %\multirow{2}{*}{} & p \lor q \iff q \lor p & p \land q  \ifq \land p & \text{Commutative Laws} \\
+            \bottomrule
+        \end{array}$
+        %\begin{tabular}{ *{2}{c} }
+            %% 2 centered columns
+            %$\neg \neg p \iff p$ & Law of Double Negation \\
+            %\begin{tabularx}{0.80\linewidth}{@{}lX}
+                %& \neg (p \lor \\
+            %\end{tabularx} \\
+        %\end{tabular}
+    \end{subtable}%
+\end{table}
+
+Note that you may choose to prove these laws by comparing their truth tables with each other.
+These truth tables are not shown, instead left as an exercise for the reader.
+
+Once you have convinced yourselves of the truth of these laws, then
+the below definition gives us a method to find the dual of a statement.
+
+\begin{definition}[Dual Statements]
+    For any statement $s$ with no component connectives other than $\land, \lor$,
+    then the dual of $s$, $s^d$ is obtained by replacing every $\land$ with $\lor$,
+    every $\lor$ with $\land$, every $\taut$ with $\contra$ and every $\contra$ with $\taut$.
+    \label{def:dual-statements}
+\end{definition}
+
+Note that for a primitive statement $p$ the dual of $p$, $p^d$ is the same primitive statement.
+
+\begin{theorem}[The Principle of Duality]
+    Let $s, t$ be statements consisting of no logical connectives other than $\lor$ and $\land$.
+    If $s \iff t$, then $s^d \iff t^d$.
+    \label{thm:principle-of-duality}
+\end{theorem}
+
+We will use the definition of a \autoref{def:dual-statements} and the \autoref{thm:principle-of-duality},
+to rewrite compound statements in terms of $\land$ and $\lor$, to find their dual statements.
+
+\subsection{Substitution Rules}
+
+\begin{enumerate}
+    \item Suppose a compound statement $P$ is a tautology. If
+        $p$ is a primitive statement appearing in $P$, and we
+        substitute every occurence of p by statement q,
+        then the resulting statement $P_1$ is also a tautology.
+    \item Let $q, p$ be statements that appear in compound statement $P$
+        such that $q \iff p$. If $p$ is replaced by one or more occurrences
+        of $q$, in P, then the resulting statement $P_1 \iff P$.
+\end{enumerate}
+
+\subsection{Variants of Implication}
+
+For a given implication $p \to q$ there exists:
+
+\begin{itemize}
+    \item The implication ($p \to q$)
+    \item The contrapositive ($\neg q \to \neg p$)
+    \item The converse ($q \to p$) \item The inverse $\neg p \to \neg q$ \end{itemize}
+
+Note:
+
+\begin{itemize}
+    \item If p is true and q is false, then the implication and contrapositive are false,
+        while the converse and inverse are true.
+    \item If p is false and q is true, then the implication and contrapositive are true,
+        while the converse and inverse are false.
+    \item If p and q are both true or false, then the implication, contrapositive, converse and inverse
+        are all true.
+\end{itemize}
+
+or more succintly, for an implication $p \to q$:
+
+\begin{table}[!htb]
+    \begin{subtable}{\linewidth}
+        \centering
+        \caption*{Truth values of implication variants}
+        \label{tbl:implication-variants}
+        \begin{tabular}{ *{2}{l} }
+            % 2 centered columns
+            \toprule \\
+            (p, q) & result \\
+            \midrule \\
+            true, true & All statement variants are true \\
+            true, false & Implication \& contrapositive are false, converse \& inverse are true \\
+            false, true & Implication \& contrapositive are true, converse \& inverse are false \\
+            false, false & All statement variants are true \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}%
+\end{table}
 
 \end{document}
