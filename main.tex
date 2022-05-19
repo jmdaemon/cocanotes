@@ -15,6 +15,7 @@
 \usepackage{longtable}                  % Breaks up long tables across pages
 \usepackage{parskip}                    % Zero parindent, nonzero parskip
 \usepackage{hyphenat}             % Use hypenation
+\usepackage{centernot}                  % Negate any symbol
 \graphicspath{{figures/}}               % Set the global figures directory
 \hyphenpenalty=80
 \exhyphenpenalty=80
@@ -25,7 +26,6 @@
     style=alphabetic
     ]{biblatex}                         % Use BibLatex
 \usepackage{csquotes}                   % Typeset quoted texts according to the rules of the main language
-\usepackage{cleveref}                   % Better references
 \usepackage{tocbibind}                  % Add Bibliography to Table of Contents
 \addbibresource{bibliography.bib}       % Add our bibliography
 
@@ -74,8 +74,10 @@
 % Use lor, land, and lxor
 \providecommand{\lxor}{\veebar} % Provide \lxor command
 
+% Load Last:
 % Multi project builds
 \usepackage{subfiles} % Best loaded last in the preamble
+\usepackage{cleveref} % Better references
 
 % ==== Preamble End
 \begin{document}
