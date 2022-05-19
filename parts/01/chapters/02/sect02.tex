@@ -153,22 +153,20 @@ These truth tables are not shown, instead left as an exercise for the reader.
 Once you have convinced yourselves of the truth of these laws, then
 the below definition gives us a method to find the dual of a statement.
 
-\begin{definition}[Dual Statements]
+\begin{definition}[Dual Statements]\label{def:dual-statements}
     For any statement $s$ with no component connectives other than $\land, \lor$,
     then the dual of $s$, $s^d$ is obtained by replacing every $\land$ with $\lor$,
     every $\lor$ with $\land$, every $\taut$ with $\contra$ and every $\contra$ with $\taut$.
-    \label{def:dual-statements}
 \end{definition}
 
 Note that for a primitive statement $p$ the dual of $p$, $p^d$ is the same primitive statement.
 
-\begin{theorem}[The Principle of Duality]
+\begin{theorem}[The Principle of Duality]\label{thm:principle-of-duality}
     Let $s, t$ be statements consisting of no logical connectives other than $\lor$ and $\land$.
     If $s \iff t$, then $s^d \iff t^d$.
-    \label{thm:principle-of-duality}
 \end{theorem}
 
-We will use the definition of a \autoref{def:dual-statements} and the \autoref{thm:principle-of-duality},
+We will use the definition of a \cref{def:dual-statements} and the \cref{thm:principle-of-duality},
 to rewrite compound statements in terms of $\land$ and $\lor$, to find their dual statements.
 
 \subsection{Substitution Rules}
