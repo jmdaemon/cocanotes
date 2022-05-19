@@ -1,0 +1,46 @@
+\documentclass[../../../../main.tex]{subfiles}
+\graphicspath{{\subfix{../../../../figures/}, ./figures}}
+
+\begin{document}
+\section{Logical Implication: Rules of Inference}
+    
+\begin{align*}
+    (p_1 \land p_2 \land p_3 \land \cdots \land p_n) \to q
+\end{align*}
+
+$p_1, p_2$, and $p_3$ are the premises of the argument.
+
+$q$ is the conclusion for the argument.
+
+The preceding argument is \textit{valid} and the conclusion is true when all the premises $p_n$ are true.
+
+If any of $p_n$ are false, then the hypothesis $(p_1 \land p_2 \land p_3 \land \cdots \land p_n)$ is false
+and the implication $(p_1 \land p_2 \land p_3 \land \cdots \land p_n) \to q$ is automatically true
+regardless of the truth value of q.
+
+One method to establish validity of an argument is to show that 
+the statement $(p_1 \land p_2 \land p_3 \land \cdots \land p_n) \to q$ is a tautology.
+
+\begin{definition}[Logical Implication]
+    Let $p,q$ be arbitrary statements. If $p \to q$ is a tautology, then
+    p \textit{logically implies} q denoted $p \implies q$.
+\end{definition}
+
+% Table, Example 2.6
+We found that for primitive statements $p, q$ $p \to (p \lor q)$ is a tautology.
+Therefore $p \implies (p \lor q)$. As well because of the first substition rule,
+$p \implies (p \lor q)$ holds for any statements $p, q$ whether primitive statements or not.
+
+Let $p, q$ be arbitrary statements.
+
+If $p \iff q$, then $p \leftrightarrow q$ is a tautology. Thus, $p \implies q$, and $q \implies p$.
+
+$p \centernot\implies q$ indicates that $p \to q$ is not a tautology.
+
+% Table 2.9, Example 2.8
+We know for statements $p, q$,
+\begin{align*}
+    \neg (p \land q) \iff \neg p \lor \neg q
+\end{align*}
+
+\end{document}
