@@ -76,7 +76,7 @@
 
 % Load Last:
 % Multi project builds
-\usepackage{subfiles} % Best loaded last in the preamble
+%\usepackage{subfiles} % Best loaded last in the preamble
 \usepackage{cleveref} % Better references
 
 % ==== Preamble End
@@ -90,8 +90,10 @@
 \cleardoublepage
 
 \part{Fundamentals of Discrete Mathematics}
-\subfile{parts/01/chapters/01/chap01}
-\subfile{parts/01/chapters/02/chap02}
+%\subfile{parts/01/chapters/01/chap01}
+%\subfile{parts/01/chapters/02/chap02}
+\input{parts/01/chapters/01/chap01}
+\input{parts/01/chapters/02/chap02}
 \part{Further Topics in Enumeration}
 \part{Graph Theory}
 \part{Modern Applied Algebra}
