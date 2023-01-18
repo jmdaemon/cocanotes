@@ -2,8 +2,10 @@
 
 % Imports
 \usepackage{coco}
+\usepackage[numbersets,logic]{shortmath}
 \usepackage{thmtools}
 \usepackage{wrapfig}
+%\usepackage{parskip}
 
 % Make better use of the page
 % TODO: We'll keep margins like this until we add in margin notes
@@ -14,7 +16,11 @@
     bottom=2cm,
 }
 
-% Markdown-like bold styling
+% ==== Markdown-like bold styling ====
+% Usage:
+% \StarON
+% **This will be bolded** 
+% \StarOFF % Disable markdown styling
 \makeatletter
 \def\starparse{\@ifnextchar*{\bfstarx}{\itstar}}
 \def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
@@ -27,9 +33,6 @@
 \starON
 \def*{\starOFF \starparse}
 \starOFF
-
-% Notes:
-% - The 'txt' suffix is used to describe a definition defined with natural sentences.
 
 % ==== Theorem Styles ====
 % Theorem environments are  : definition,
@@ -48,37 +51,59 @@
 \declaretheoremstyle[
     spaceabove=\topsep,
     spacebelow=\topsep,
-    headfont=\normalfont\bfseries,
-    notefont=\bfseries, notebraces={}{},
+    %headfont=\normalfont\bfseries,
+    headfont=\bfseries\sffamily,
     bodyfont=\normalfont,
+    notefont=\bfseries, notebraces={}{},
     postheadspace=0.5em,
     name={\ignorespaces},
     numbered=no,
+    mdframed={nobreak}, % Make boxed
     headpunct=:
 ]{definition}
 \declaretheorem[style=definition]{definition}
 
 % TODO: Create theorem style where the name of the thing is actually shown
 
+\setlength{\lineskip}{0.0pt}
+\setlength{\lineskiplimit}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\baselineskip}{0pt}
+
 \begin{document}
 
 % TODO: Make nice page
 % TODO: Refactor into a cover page
 
-\begin{center}
-    \huge Discrete Mathematics
+% Cover Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \huge \textbf{Discrete Mathematics}
 
-    \vspace*{2em}
+        \vspace*{1.5em}
 
-    Joseph M. R. Diza
-\end{center}
+        \Large{Joseph M. R. Diza}
 
+        \vfill
+    \end{center}
+\end{titlepage}
 \newpage
 
 % TODO: Add fancyhdr shit here
 
+% Table of Contents
 \tableofcontents
 
+% Quick Introduction
+\section{Introduction}
+
+This document contains various definitions, laws, notation for Discrete Mathematics.
+
+The content is stripped of many examples for brevity purposes, and is essentially a reference book.
+
+% Content
 \section{Statements}
 
 \begin{definition}[Propositions]\label{def:props}
@@ -103,9 +128,8 @@ Statement that is true for at least one element in a set, given a property is a 
 
 \section{Sets}
 
-Set-Builder notation is used to describe sets.
+Set-Builder notation (also known as Set Roster Notation) is used to describe sets.
 
-% TODO: Set definition
 \begin{definition}[Set]\label{def:set}
 An arbitrary collection of elements.
 \end{definition}
@@ -128,7 +152,7 @@ An arbitrary collection of elements.
         ...     & Ellipses      & And so forth      & Elides numbers from the entire set for brevity \\
         \bottomrule
     \end{tabular}
-    \label{tab:tbl1}
+    \label{tab:tbl-set-notation}
 \end{table}
 
 % TODO: Add sets for the groups of numbers
@@ -154,7 +178,7 @@ An arbitrary collection of elements.
         \R      & Reals     & $\{ \sqrt{5} \}$ \\
         \bottomrule
     \end{tabular}
-    \label{tab:tbl2}
+    \label{tab:tbl-number-sets}
     \caption{Common Number Sets}
 \end{table}
 %\end{wraptable}
@@ -172,19 +196,24 @@ An arbitrary collection of elements.
 
 \newpage
 
-\begin{definition}[subset-txt]\label{def:subset-txt}
+\begin{definition}[Subset]\label{def:subset-txt}
 If A, B are sets, then A is a subset of B if and only if every element of A is an element of B
 \end{definition}
+
+% TODO Find symbols for this shit
+%\begin{definition}[Subset]\label{def:subset}
+    %Let A, B be sets,
+        %A subset B iff for all elem a in A, a is in B
+%\end{definition}
 
 % TODO: Add symbolic variant definitions for sets, distinguish with text variants with -txt
 
 Note that 'contained-in' are alternative ways of saying 'is a subset of'.
 
-\begin{definition}[proper-subset-txt]\label{def:proper-subset-txt}
+\begin{definition}[Proper Subset]\label{def:proper-subset-txt}
 Let A, B be sets, A is a proper subset of B if and only if every element of A is in B, but there
 is at least one element of B not in A.
 \end{definition}
-
 
 % TODO: Cartesian product def
 % TODO: Ordered pair def
@@ -192,6 +221,29 @@ is at least one element of B not in A.
 % TODO: Strings def
 
 \section{Logic}
+
+\begin{table}[!htbp]
+    \centering
+    \caption{Logical Operators}
+    \begin{tabular}{ c c l l l l  }
+        \toprule
+        Symbol      & Programming   & LaTeX         & Name          & Meaning \\
+        \midrule
+        $\land$     & \&\&          & \verb|\wedge| & And           & Conjunction of two terms \\
+        $\lor$      & ||            & \verb|\lor|   & Or            & Disjunction of two terms \\
+        $\lxor$     & \string^      & \verb|\lxor|  & Xor           & Exclusive logical or \\
+        $\neg$      & !             & \verb|\neg|   & Not           & Negation of a term \\
+        $\limp$     &               & \verb|\to|    & Implies       & Logical implication \\
+        $\iff$      &               & \verb|\iff|   & Biconditional & Logical Equivalence \\
+        %\land           & \&\&                  & \wedge
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl-logic-ops}
+\end{table}
+
+Note: An alternative syntax for negation is tilde: $\sim$ (\verb|\sim|).
+
+Note: In the biconditional, the hypothesis implies the conclusion and vice versa.
 
 % TODO: Logical operators
 % TODO: Table showing LaTeX symbols
@@ -236,6 +288,20 @@ is at least one element of B not in A.
 TODO: Entire section of gotchas
 
 \subsection{Quantifiers}
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ *{2}{cc} }
+        \toprule
+        Symbol      & LaTeX             & Name                      & Meaning \\
+        \midrule
+        $\exists$   & \verb|\exists|    & Existential Quantifier    & There exists at least one \\
+        $\forall$   & \verb|\forall|    & Existential Quantifier    & For all \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl4}
+    \caption{3}
+\end{table}
 
 % TODO: Universal, Existential quantifiers definitions, and table meanings
 
