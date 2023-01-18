@@ -1,4 +1,15 @@
-% Note that the 'txt' suffix is used to describe a definition defined with natural sentences.
+\documentclass{article}
+\usepackage{coco}
+\usepackage{thmtools}                   % Support for custom theorems
+    
+% Declare theorem styles
+\theoremstyle{definition}
+
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
+\declaretheorem[numberwithin=section, style=thmgreenbox , name=Definition]{definition}
+%% *Note* that the 'txt' suffix is used to describe a definition defined with natural sentences.
+
+\begin{document}
 
 \section{Statements}
 
@@ -27,6 +38,24 @@ An existential statement is true for at least one element in a set, given a prop
 Set-Builder notation is used to describe sets.
 
 % TODO: Set definition
+\begin{definition}[set]\label{def:set}
+A set is a collection of elements
+\end{definition}
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ *{5}{cc} }
+        \toprule
+        Symbol  & Name          & Meaning           & Usage \\
+        \midrule
+        \{, \}  & Curly Braces  & The set of all    & Denotes a set \\
+        |       & Pipe/Bar      & Such that         & Indicates conditions on sets \\
+        ...     & Ellipses      & And so forth      & Elides numbers from the entire set for brevity \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl1}
+    \caption{3}
+\end{table}
 
 % TODO:  Make table explaining what the symbols mean
 % Symbol        ,     Name      , Meaning           | Usage
@@ -131,3 +160,5 @@ Variable scope refers to the lifetime of a given variable.
 
 % TODO: Instantiation
 % Universal instantiation
+    
+\end{document}
