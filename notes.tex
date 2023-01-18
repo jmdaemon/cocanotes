@@ -1,35 +1,86 @@
 \documentclass{article}
+
+% Imports
 \usepackage{coco}
-\usepackage{thmtools}                   % Support for custom theorems
+\usepackage{thmtools}
+
+\geometry{
+    left=2cm,
+    top=2cm,
+    right=2cm,
+    bottom=2cm,
+}
+
+% Notes:
+% - The 'txt' suffix is used to describe a definition defined with natural sentences.
+
+% ==== Theorem Styles ====
+% Theorem environments are  : definition,
+% Theorem styles are        :
     
 % Declare theorem styles
-\theoremstyle{definition}
+%\theoremstyle{definition}
 
-\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
-\declaretheorem[numberwithin=section, style=thmgreenbox , name=Definition]{definition}
-%% *Note* that the 'txt' suffix is used to describe a definition defined with natural sentences.
+%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
+%\declaretheorem[numberwithin=section, style=thmgreenbox , name=Definition]{definition}
+
+%\theoremstyle{definition}
+%\newtheorem{definition}{Definition}[section]
+
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\normalfont\bfseries,
+    notefont=\bfseries, notebraces={}{},
+    %bodyfont=\normalfont\itshape,
+    bodyfont=\normalfont,
+    postheadspace=0.5em,
+    name={\ignorespaces},
+    numbered=no,
+    headpunct=:
+]{definition}
+\declaretheorem[style=definition]{definition}
+%\newtheorem{definition}{Definition}[section]
+
+%\declaretheoremstyle[
+    %spaceabove=\topsep, spacebelow=\topsep,
+    %headfont=\normalfont\bfseries,
+    %notefont=\bfseries, notebraces={}{},
+    %bodyfont=\normalfont\itshape,
+    %postheadspace=0.5em,
+    %name={\ignorespaces},
+    %numbered=no,
+    %headpunct=:
+%]{definition}
+%\declaretheorem[style=definition]{definition}
+
+% TODO: Create theorem style where the name of the thing is actually shown
 
 \begin{document}
 
+% TODO: Make nice page
+
+\tableofcontents
+
 \section{Statements}
 
-\begin{definition}[props]\label{def:props}
+\begin{definition}[Propositions]\label{def:props}
 Propositions are declarative true or false (but not both) statements.
 \end{definition}
 
-\begin{definition}[prims]\label{def:prims}
+\begin{definition}\label{def:prims}
 Primitive statements are propositions that are in their simplest terms.
 \end{definition}
 
-\begin{definition}[universal-stmts]\label{def:universal-stmts}
+\begin{definition}\label{def:universal-stmts}
 A universal statement states a property is true for all elements in a set.
 \end{definition}
 
-\begin{definition}[cond-stmts]\label{def:cond-stmts}
+\begin{definition}\label{def:cond-stmts}
 A conditional statement states that if a condition is true then another condition is true.
 \end{definition}
 
-\begin{definition}[exist-stmts]\label{def:exist-stmts}
+\begin{definition}\label{def:exist-stmts}
 An existential statement is true for at least one element in a set, given a property is a statement.
 \end{definition}
 
@@ -38,36 +89,55 @@ An existential statement is true for at least one element in a set, given a prop
 Set-Builder notation is used to describe sets.
 
 % TODO: Set definition
-\begin{definition}[set]\label{def:set}
+\begin{definition}\label{def:set}
 A set is a collection of elements
 \end{definition}
 
 \begin{table}[!htbp]
+    % Symbol        ,     Name      , Meaning           | Usage
+    % {, }          , Curly Braces  , The set of all    | Denotes a set
+    % |             , Pipe/Bar      , Such that         | Indicates conditions on sets
+    % ...           , Ellipses      , And so forth      | Elides numbers from the entire set for brevity
     \centering
-    \begin{tabular}{ *{5}{cc} }
+    \caption{Set Roster Notation}
+    %\begin{tabular}{ *{5}{ll} }
+    %\begin{tabular}{ c | l | l | l }
+    \begin{tabular}{ c l l l }
         \toprule
         Symbol  & Name          & Meaning           & Usage \\
         \midrule
-        \{, \}  & Curly Braces  & The set of all    & Denotes a set \\
+        \{ \}  & Curly Braces  & The set of all    & Denotes a set \\
         |       & Pipe/Bar      & Such that         & Indicates conditions on sets \\
         ...     & Ellipses      & And so forth      & Elides numbers from the entire set for brevity \\
         \bottomrule
     \end{tabular}
     \label{tab:tbl1}
-    \caption{3}
 \end{table}
 
-% TODO:  Make table explaining what the symbols mean
-% Symbol        ,     Name      , Meaning           | Usage
-% {, }          , Curly Braces  , The set of all    | Denotes a set
-% |             , Pipe/Bar      , Such that         | Indicates conditions on sets
-% ...           , Ellipses      , And so forth      | Elides numbers from the entire set for brevity
+\newpage
 
 % TODO: Add sets for the groups of numbers
-% Symbol        ,   Name        , Domain
-% Z             , Integers      , 
-% Q             , Rationals     , 
-% R             , Reals         , 
+% TODO: Develop set notation functions to make writing easier
+% TODO: Fix table headers not being centered
+\begin{table}[!htbp]
+    % Symbol        ,   Name        , Domain
+    % Z             , Integers      , 
+    % Q             , Rationals     , 
+    % R             , Reals         , 
+    \centering
+    \begin{tabular}{ c l l }
+        \toprule
+        Symbol  & Name      & Set \\
+        \midrule
+        \Z      & Integers  & $\{-3,-2,-1,0,1,2,3, ... \}$ \\
+        \Q      & Rationals & $\{ -1/2, 0.333, ... \}$ \\
+        \R      & Reals     & $\{ \sqrt{5} \}$ \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl2}
+    \caption{Number Sets}
+\end{table}
+
 
 % TODO: Definitions for continuous and discrete
 
