@@ -48,7 +48,7 @@
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 
-% Custom Name Definitions
+% Theorem environment with custom names
 \declaretheoremstyle[
     spaceabove=\topsep,
     spacebelow=\topsep,
@@ -191,8 +191,9 @@ An arbitrary collection of elements.
 \subsection{Set Theory Notation}
 \begin{table}[!htbp]
     \centering
-        \rowcolors{2}{}{gray!10}
-        \begin{tabular}{ c l l l }
+    \caption{Set Theory Notation}
+    \rowcolors{2}{}{gray!10}
+    \begin{tabular}{ c l l l }
         \toprule
         Symbol      & LaTeX             & Name              & Meaning \\
         \midrule
@@ -207,8 +208,7 @@ An arbitrary collection of elements.
         $\setminus$ & \verb|\setminus|  & Set Difference    & The set of elements of A that are not in B \\
         \bottomrule
     \end{tabular}
-    \label{tab:tbl}
-    \caption{}
+    \label{tab:tbl-set-theory-notation}
 \end{table}
 
 
@@ -233,10 +233,62 @@ Let A, B be sets, A is a proper subset of B if and only if every element of A is
 is at least one element of B not in A.
 \end{definition}
 
-% TODO: Cartesian product def
-% TODO: Ordered pair def
-% TODO: N-tuples def
-% TODO: Strings def
+\subsection{Tuples}
+
+\begin{definition}[Ordered Pair]\label{def:ordered-pair}
+    A pair of elements $(a, b)$ where a is the first
+    element of the pair, and b is the second. 
+\end{definition}
+
+\begin{definition}[Ordered Pair Equality]\label{def:ordered-pair-eq}
+    Two ordered pairs $(a,b)$, $(c,d)$ are equal if and only if
+    $a = c$ and $b = d$. In other words:
+
+    \begin{equation}
+        (a,b) = (c,d) \iff (a = c) \land (b = d)
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Tuples]\label{def:tuple}
+    Let $n$ be a positive integer and let $x_1, x_2, ... , x_n$ be elements.
+
+    An ordered $n$-tuple $(x_1, x_2, ... , x_n)$ is sorted in ascending order
+    starting with $x_1$ to $x_n$. An ordered 2-tuple is an ordered pair,
+    and an ordered 3-tuple is an ordered triple.
+\end{definition}
+
+\begin{definition}[Tuple Equality]\label{def:tuple-eq}
+    Two ordered n-tuples $(x_1, x_2, ..., x_n)$, $(y_1, y_2, ..., y_n)$
+    are equal if and only if:
+
+    \begin{equation}
+        (x_1, x_2, ..., x_n) = (y_1, y_2, ..., y_n) \iff x_1 = y_1, ... x_n = y_n
+    \end{equation}
+\end{definition}
+
+In other words, all elements of one tuple must be equal to all the elements of the other tuple.
+
+\begin{definition}[Cartesian Product]\label{def:cartesian-product}
+    Given sets $A_1, A_2, ..., A_n$, the Cartesian product of $A_1, A_2, ..., A_n$
+    denoted
+
+    $A_1 \times A_2 \times ... \times A_n$ is the set of all ordered $n$-tuples
+    $(a_1, a_2, ..., a_n)$ where $a_1 \in A_1, a_2 \in A_2, ... a_n \in A_n$
+    \begin{equation}
+        \begin{aligned}
+            A_1 \times A_2 \times ... \times A_n &= \{ (a_1, a_2, ..., a_n) | a_1 \in A_1, a_2 \in A_2, ... a_n \in A_n \} \\
+            A_1 \times A_2 &= \{ (a_1, a_2) | a_1 \in A_1, a_2 \in A_2 \}
+        \end{aligned}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Strings]\label{def:string}
+    Let $n$ be a positive integer. Given a finite set $A$, a string
+    of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
+    The elements of $A$ are called characters. The null string of $A$
+    denoted $\lambda$ is a string with no characters and length of $0$.
+    If $A = \{0, 1\}$ then a string over $A$ is a bit string.
+\end{definition}
 
 \section{Predicate Logic}
 
@@ -320,7 +372,7 @@ TODO: Entire section of gotchas
         \bottomrule
     \end{tabular}
     \label{tab:tbl-quantifiers}
-    \caption{3}
+    \caption{Quantifiers}
 \end{table}
 
 % TODO: Universal, Existential quantifiers definitions, and table meanings
