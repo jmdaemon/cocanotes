@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 
 % Imports
+\usepackage[table]{xcolor}
 \usepackage{coco}
 \usepackage[numbersets,logic]{shortmath}
 \usepackage{thmtools}
@@ -51,7 +52,6 @@
 \declaretheoremstyle[
     spaceabove=\topsep,
     spacebelow=\topsep,
-    %headfont=\normalfont\bfseries,
     headfont=\bfseries\sffamily,
     bodyfont=\normalfont,
     notefont=\bfseries, notebraces={}{},
@@ -65,6 +65,7 @@
 
 % TODO: Create theorem style where the name of the thing is actually shown
 
+% TODO: Remove disgusting paragraph indent
 \setlength{\lineskip}{0.0pt}
 \setlength{\lineskiplimit}{0pt}
 \setlength{\parskip}{0pt}
@@ -104,7 +105,7 @@ This document contains various definitions, laws, notation for Discrete Mathemat
 The content is stripped of many examples for brevity purposes, and is essentially a reference book.
 
 % Content
-\section{Statements}
+\section{Logical Statements}
 
 \begin{definition}[Propositions]\label{def:props}
 Declarative true or false (but not both) statements.
@@ -126,7 +127,7 @@ Statement that if a condition is true then another condition is true.
 Statement that is true for at least one element in a set, given a property is a statement.
 \end{definition}
 
-\section{Sets}
+\section{Set Theory}
 
 Set-Builder notation (also known as Set Roster Notation) is used to describe sets.
 
@@ -134,6 +135,7 @@ Set-Builder notation (also known as Set Roster Notation) is used to describe set
 An arbitrary collection of elements.
 \end{definition}
 
+\subsection{Set Roster Notation}
 \begin{table}[!htbp]
     % Symbol        ,     Name      , Meaning           | Usage
     % {, }          , Curly Braces  , The set of all    | Denotes a set
@@ -141,13 +143,12 @@ An arbitrary collection of elements.
     % ...           , Ellipses      , And so forth      | Elides numbers from the entire set for brevity
     \centering
     \caption{Set Roster Notation}
-    %\begin{tabular}{ *{5}{ll} }
-    %\begin{tabular}{ c | l | l | l }
+		\rowcolors{2}{}{gray!10}
     \begin{tabular}{ c l l l }
         \toprule
         Symbol  & Name          & Meaning           & Usage \\
         \midrule
-        \{ \}  & Curly Braces  & The set of all    & Denotes a set \\
+        \{ \}   & Curly Braces  & The set of all    & Denotes a set \\
         |       & Pipe/Bar      & Such that         & Indicates conditions on sets \\
         ...     & Ellipses      & And so forth      & Elides numbers from the entire set for brevity \\
         \bottomrule
@@ -155,20 +156,19 @@ An arbitrary collection of elements.
     \label{tab:tbl-set-notation}
 \end{table}
 
+\subsection{Common Number Sets}
 % TODO: Add sets for the groups of numbers
 % TODO: Develop set notation functions to make writing easier
 % TODO: Fix table headers not being centered
 
 % TODO: Wrap the text on this
-%\begin{wraptable}[!htbp]{l}{2em}
-
-%\begin{wraptable}{l}{9cm}
+\begin{table}[!htbp]
     % Symbol        ,   Name        , Domain
     % Z             , Integers      , 
     % Q             , Rationals     , 
     % R             , Reals         , 
-\begin{table}[!htbp]
     \centering
+		\rowcolors{2}{}{gray!10}
     \begin{tabular}{ c l l }
         \toprule
         Symbol  & Name      & Set \\
@@ -181,18 +181,36 @@ An arbitrary collection of elements.
     \label{tab:tbl-number-sets}
     \caption{Common Number Sets}
 \end{table}
-%\end{wraptable}
 
-
-% TODO: Definitions for continuous and discrete
-
-% TODO: Remove disgusting paragraph indent
-% TODO: Add quick table cheat sheet to use to describe notation
 \starON
 **Note:** The $^+$ superscript denotes positive number elements in these sets. 
 
 **Note:** The $^{nonneg}$ superscript denotes non-negative numbers (0, 1, 2, 3, ...). 
 \starOFF
+
+\subsection{Set Theory Notation}
+\begin{table}[!htbp]
+    \centering
+        \rowcolors{2}{}{gray!10}
+        \begin{tabular}{ c l l l }
+        \toprule
+        Symbol      & LaTeX             & Name              & Meaning \\
+        \midrule
+        $\in$       & \verb|\in|        & In                & Is an element of ... \\
+        $\notin$    & \verb|\notin|     & Not in            & Is not an element of ... \\
+        $\subset$   & \verb|\subset|    & Proper Subset     & Is a proper subset of ... \\
+        $\subseteq$ & \verb|\subseteq|  & Subset            & Is a subset of ... \\
+        $\subset$   & \verb|\subset|    & Proper Superset   & Is a proper superset of ... \\
+        $\subseteq$ & \verb|\subseteq|  & Superset          & Is a superset of ... \\
+        $\cup$      & \verb|\cup|       & Set Union         & The set of elements in either set A or B \\
+        $\cap$      & \verb|\cap|       & Set Intersection  & The set of elements in both set A and B \\
+        $\setminus$ & \verb|\setminus|  & Set Difference    & The set of elements of A that are not in B \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl}
+    \caption{}
+\end{table}
+
 
 \newpage
 
@@ -220,11 +238,13 @@ is at least one element of B not in A.
 % TODO: N-tuples def
 % TODO: Strings def
 
-\section{Logic}
+\section{Predicate Logic}
 
+\subsection{Logical Operators}
 \begin{table}[!htbp]
     \centering
     \caption{Logical Operators}
+		\rowcolors{2}{}{gray!10}
     \begin{tabular}{ c c l l l l  }
         \toprule
         Symbol      & Programming   & LaTeX         & Name          & Meaning \\
@@ -299,7 +319,7 @@ TODO: Entire section of gotchas
         $\forall$   & \verb|\forall|    & Existential Quantifier    & For all \\
         \bottomrule
     \end{tabular}
-    \label{tab:tbl4}
+    \label{tab:tbl-quantifiers}
     \caption{3}
 \end{table}
 
