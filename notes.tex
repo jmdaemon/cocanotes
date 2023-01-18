@@ -6,6 +6,10 @@
 \usepackage[numbersets,logic]{shortmath}
 \usepackage{thmtools}
 \usepackage{wrapfig}
+
+\usepackage{setspace}
+%\onehalfspacing
+\usepackage{titlesec}
 %\usepackage{parskip}
 
 % Make better use of the page
@@ -27,7 +31,8 @@
 \def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
 \makeatother
 \def\itstar#1*{\textit{#1}\starON}
-\def\bfstar#1**{\textbf{#1}\starON}
+\def\bfstar#1**{\textbf{\sffamily\upshape\bfseries#1}\starON}
+%\def\bfstar#1**{\textbf{#1}\starON}
 \def\bfitstar#1***{\textbf{\textit{#1}}\starON}
 \def\starON{\catcode`\*=\active}
 \def\starOFF{\catcode`\*=12}
@@ -71,6 +76,11 @@
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 \setlength{\baselineskip}{0pt}
+
+% Arial Font on Headings
+\titleformat{\section}{\sffamily\upshape\bfseries\huge}{\thesection}{1em}{}
+\titleformat{\subsection}{\sffamily\upshape\bfseries\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\sffamily\upshape\bfseries}{\thesubsubsection}{1em}{} 
 
 \begin{document}
 
@@ -211,7 +221,6 @@ An arbitrary collection of elements.
     \label{tab:tbl-set-theory-notation}
 \end{table}
 
-
 \newpage
 
 \begin{definition}[Subset]\label{def:subset-txt}
@@ -294,6 +303,11 @@ In other words, all elements of one tuple must be equal to all the elements of t
 
 \subsection{Logical Operators}
 \begin{table}[!htbp]
+    % Logical Symbol    , Programming Symbol    , LaTeX Symbol  , Name          , Meaning
+    % &&                , &&                    , \wedge        , Logical And   , Conjunction of two statements
+    % ||                , ||                    , \lor          , Logical Or    , Disjunction of two statements
+    % Not               , !                     , \lnot         , Negation      , Negates a statement
+    % Xor               , xor                   , \xor          , Exclusive Or  , Logical Or, but both statements cannot be true
     \centering
     \caption{Logical Operators}
 		\rowcolors{2}{}{gray!10}
@@ -307,7 +321,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
         $\neg$      & !             & \verb|\neg|   & Not           & Negation of a term \\
         $\limp$     &               & \verb|\to|    & Implies       & Logical implication \\
         $\iff$      &               & \verb|\iff|   & Biconditional & Logical Equivalence \\
-        %\land           & \&\&                  & \wedge
         \bottomrule
     \end{tabular}
     \label{tab:tbl-logic-ops}
@@ -316,16 +329,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
 Note: An alternative syntax for negation is tilde: $\sim$ (\verb|\sim|).
 
 Note: In the biconditional, the hypothesis implies the conclusion and vice versa.
-
-% TODO: Logical operators
-% TODO: Table showing LaTeX symbols
-% TODO: Add notes section to briefly describe these things
-
-% Logical Symbol    , Programming Symbol    , LaTeX Symbol  , Name          , Meaning
-% &&                , &&                    , \wedge        , Logical And   , Conjunction of two statements
-% ||                , ||                    , \lor          , Logical Or    , Disjunction of two statements
-% Not               , !                     , \lnot         , Negation      , Negates a statement
-% Xor               , xor                   , \xor          , Exclusive Or  , Logical Or, but both statements cannot be true
 
 % TODO: Truth values, Truth tables.
 
@@ -357,11 +360,15 @@ Note: In the biconditional, the hypothesis implies the conclusion and vice versa
 
 % TODO: Rules of Inference
 
-TODO: Entire section of gotchas
+% TODO: Entire section of gotchas
 
 \subsection{Quantifiers}
 
 \begin{table}[!htbp]
+    % Table of quantifiers
+    % Symbol    , Name          , Meaning
+    % ∀         , Universal     , For all elements of the set
+    % E         , Existential   , There exists an element of the set
     \centering
     \begin{tabular}{ *{2}{cc} }
         \toprule
@@ -375,14 +382,7 @@ TODO: Entire section of gotchas
     \caption{Quantifiers}
 \end{table}
 
-% TODO: Universal, Existential quantifiers definitions, and table meanings
-
-% Table of quantifiers
-% Symbol    , Name          , Meaning
-% ∀         , Universal     , For all elements of the set
-% E         , Existential   , There exists an element of the set
-
-Variable binding is the restriction of a variable to its quantifer.
+Variable binding is the restriction of a variable to its quantifier.
 
 Variable scope refers to the lifetime of a given variable.
 
