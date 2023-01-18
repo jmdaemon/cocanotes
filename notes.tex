@@ -1,15 +1,32 @@
-\documentclass{article}
+\documentclass[11pt]{article}
 
 % Imports
 \usepackage{coco}
 \usepackage{thmtools}
+\usepackage{wrapfig}
 
+% Make better use of the page
+% TODO: We'll keep margins like this until we add in margin notes
 \geometry{
     left=2cm,
     top=2cm,
     right=2cm,
     bottom=2cm,
 }
+
+% Markdown-like bold styling
+\makeatletter
+\def\starparse{\@ifnextchar*{\bfstarx}{\itstar}}
+\def\bfstarx#1{\@ifnextchar*{\bfitstar\@gobble}{\bfstar}}
+\makeatother
+\def\itstar#1*{\textit{#1}\starON}
+\def\bfstar#1**{\textbf{#1}\starON}
+\def\bfitstar#1***{\textbf{\textit{#1}}\starON}
+\def\starON{\catcode`\*=\active}
+\def\starOFF{\catcode`\*=12}
+\starON
+\def*{\starOFF \starparse}
+\starOFF
 
 % Notes:
 % - The 'txt' suffix is used to describe a definition defined with natural sentences.
@@ -27,12 +44,12 @@
 %\theoremstyle{definition}
 %\newtheorem{definition}{Definition}[section]
 
+% Custom Name Definitions
 \declaretheoremstyle[
     spaceabove=\topsep,
     spacebelow=\topsep,
     headfont=\normalfont\bfseries,
     notefont=\bfseries, notebraces={}{},
-    %bodyfont=\normalfont\itshape,
     bodyfont=\normalfont,
     postheadspace=0.5em,
     name={\ignorespaces},
@@ -40,48 +57,48 @@
     headpunct=:
 ]{definition}
 \declaretheorem[style=definition]{definition}
-%\newtheorem{definition}{Definition}[section]
-
-%\declaretheoremstyle[
-    %spaceabove=\topsep, spacebelow=\topsep,
-    %headfont=\normalfont\bfseries,
-    %notefont=\bfseries, notebraces={}{},
-    %bodyfont=\normalfont\itshape,
-    %postheadspace=0.5em,
-    %name={\ignorespaces},
-    %numbered=no,
-    %headpunct=:
-%]{definition}
-%\declaretheorem[style=definition]{definition}
 
 % TODO: Create theorem style where the name of the thing is actually shown
 
 \begin{document}
 
 % TODO: Make nice page
+% TODO: Refactor into a cover page
+
+\begin{center}
+    \huge Discrete Mathematics
+
+    \vspace*{2em}
+
+    Joseph M. R. Diza
+\end{center}
+
+\newpage
+
+% TODO: Add fancyhdr shit here
 
 \tableofcontents
 
 \section{Statements}
 
 \begin{definition}[Propositions]\label{def:props}
-Propositions are declarative true or false (but not both) statements.
+Declarative true or false (but not both) statements.
 \end{definition}
 
-\begin{definition}\label{def:prims}
-Primitive statements are propositions that are in their simplest terms.
+\begin{definition}[Primitive Statements]\label{def:prims}
+Propositions that are in their simplest terms.
 \end{definition}
 
-\begin{definition}\label{def:universal-stmts}
-A universal statement states a property is true for all elements in a set.
+\begin{definition}[Universal Statements]\label{def:universal-stmts}
+Statement that a property holds true for all elements in a set.
 \end{definition}
 
-\begin{definition}\label{def:cond-stmts}
-A conditional statement states that if a condition is true then another condition is true.
+\begin{definition}[Conditional Statements]\label{def:cond-stmts}
+Statement that if a condition is true then another condition is true.
 \end{definition}
 
-\begin{definition}\label{def:exist-stmts}
-An existential statement is true for at least one element in a set, given a property is a statement.
+\begin{definition}[Existential Statements]\label{def:exist-stmts}
+Statement that is true for at least one element in a set, given a property is a statement.
 \end{definition}
 
 \section{Sets}
@@ -89,8 +106,8 @@ An existential statement is true for at least one element in a set, given a prop
 Set-Builder notation is used to describe sets.
 
 % TODO: Set definition
-\begin{definition}\label{def:set}
-A set is a collection of elements
+\begin{definition}[Set]\label{def:set}
+An arbitrary collection of elements.
 \end{definition}
 
 \begin{table}[!htbp]
@@ -114,16 +131,19 @@ A set is a collection of elements
     \label{tab:tbl1}
 \end{table}
 
-\newpage
-
 % TODO: Add sets for the groups of numbers
 % TODO: Develop set notation functions to make writing easier
 % TODO: Fix table headers not being centered
-\begin{table}[!htbp]
+
+% TODO: Wrap the text on this
+%\begin{wraptable}[!htbp]{l}{2em}
+
+%\begin{wraptable}{l}{9cm}
     % Symbol        ,   Name        , Domain
     % Z             , Integers      , 
     % Q             , Rationals     , 
     % R             , Reals         , 
+\begin{table}[!htbp]
     \centering
     \begin{tabular}{ c l l }
         \toprule
@@ -135,17 +155,22 @@ A set is a collection of elements
         \bottomrule
     \end{tabular}
     \label{tab:tbl2}
-    \caption{Number Sets}
+    \caption{Common Number Sets}
 \end{table}
+%\end{wraptable}
 
 
 % TODO: Definitions for continuous and discrete
 
-
+% TODO: Remove disgusting paragraph indent
 % TODO: Add quick table cheat sheet to use to describe notation
-The '+' superscript is used in these sets to denote positive number elements.
-The 'nonneg' superscript is used to denote non-negative numbers (positive numbers and zero).
+\starON
+**Note:** The $^+$ superscript denotes positive number elements in these sets. 
 
+**Note:** The $^{nonneg}$ superscript denotes non-negative numbers (0, 1, 2, 3, ...). 
+\starOFF
+
+\newpage
 
 \begin{definition}[subset-txt]\label{def:subset-txt}
 If A, B are sets, then A is a subset of B if and only if every element of A is an element of B
