@@ -95,7 +95,7 @@
 
         \vspace*{1.5em}
 
-        \Large{Joseph M. R. Diza}
+        \Large{Joseph Diza}
 
         \vfill
     \end{center}
@@ -109,6 +109,8 @@
 
 % Quick Introduction
 \section{Introduction}
+
+%\starON % Enable markdown style bolding
 
 This document contains various definitions, laws, notation for Discrete Mathematics.
 
@@ -235,7 +237,9 @@ If A, B are sets, then A is a subset of B if and only if every element of A is a
 
 % TODO: Add symbolic variant definitions for sets, distinguish with text variants with -txt
 
-Note that 'contained-in' are alternative ways of saying 'is a subset of'.
+\starON
+**Note:** Contained-in is an alternative way of saying 'is a subset of'.
+\starOFF
 
 \begin{definition}[Proper Subset]\label{def:proper-subset-txt}
 Let A, B be sets, A is a proper subset of B if and only if every element of A is in B, but there
@@ -299,6 +303,7 @@ In other words, all elements of one tuple must be equal to all the elements of t
     If $A = \{0, 1\}$ then a string over $A$ is a bit string.
 \end{definition}
 
+\newpage
 \section{Predicate Logic}
 
 \subsection{Logical Operators}
@@ -326,23 +331,120 @@ In other words, all elements of one tuple must be equal to all the elements of t
     \label{tab:tbl-logic-ops}
 \end{table}
 
-Note: An alternative syntax for negation is tilde: $\sim$ (\verb|\sim|).
+\starON
+**Note:** An alternative syntax for negation is tilde: $\sim$ (\verb|\sim|).
 
-Note: In the biconditional, the hypothesis implies the conclusion and vice versa.
+**Note:** An alternative syntax for logical equivalence is $\equiv$ (\verb|\equiv|).
 
-% TODO: Truth values, Truth tables.
+**Note:** In the biconditional, the hypothesis implies the conclusion and vice versa.
 
-% TODO: Definitions
-% TODO: negation
-% TODO: conjunction
-% TODO: disjunction
+**Note:** Exclusive or contains almost the same truth values as logical or, with the exception
+that both operands of the connective cannot both be simultaneously true.
+\starOFF
 
-% TODO: Short bit about exclusive or
-% TODO: Logical equivalence def
-% TODO: Add short algorithmic bit about testing for logical equivalence
+%\hfill
 
-% TODO: Laws of Logic
-% TODO: Tautology, Contradiction definitions
+\subsubsection{Truth Values}
+
+$T$ is used to denote a true value and $F$ is used to denote a false value.
+
+\begin{definition}[Negation]\label{def:negation}
+    The interchanging of truth values in a statement.
+    Given statement p, the resulting statement is "not p"
+\end{definition}
+
+\begin{definition}[Conjunction]\label{def:conjunction}
+    A compound statement read as "p and q" $p \land q$ that 
+    is true only when both p and q are true, and false otherwise.
+\end{definition}
+
+\begin{definition}[Disjunction]\label{def:disjunction}
+    A compound statement read as "p or q" $p \lor q$
+    that is false when both p and q are false, and true otherwise.
+\end{definition}
+
+\begin{definition}[Statement Form]\label{def:statement-form}
+    An expression of statement variables
+    and logical connectives that becomes a proper statement
+    when actual statements are substituted in for the variables.
+\end{definition}
+
+\begin{definition}[Truth Table]\label{def:truth-table}
+    The enumeration of all possible truth values for a given statement.
+\end{definition}
+
+\begin{definition}[Logical Equivalence]\label{def:logical-eq}
+    Two statements are logically equivalent (denoted $\iff$),
+    if and only if they have identical truth values
+    for every possible substitution for the statement variables. 
+\end{definition}
+
+\large{Testing Statements $P$, $Q$ for Logical Equivalence}
+\begin{enumerate}
+    \item Create the truth tables for $P$, $Q$
+    \item For all truth values, check that $P$'s values match $Q$'s
+\end{enumerate}
+
+If for every row of $P$, the truth value is the same as $Q$, then 
+the two forms are logically equivalent. Otherwise if even one
+value is different, the two are not.
+
+\begin{definition}[Tautology]\label{def:tautology}
+A statement form that holds true for all possible statement substitutions regardless of the individual statements truth values.
+\end{definition}
+
+\begin{definition}[Contradiction]\label{def:contradiction}
+A statement form that holds false for all possible statement substitutions regardless of the individual statements truth values.
+\end{definition}
+
+\starON
+**Note:** $T$ or $t$ denotes a tautology
+
+**Note:** $F$ or $c$ denotes a contradiction
+
+The usage depends on whichever variant is used. In our case we will use
+$t$ and $c$.
+\starOFF
+
+\section{Laws of Logic}
+
+\begin{table}[!htbp]
+    \centering
+    \rowcolors{2}{}{gray!10}
+    \begin{tabular}{ l l l }
+        \toprule
+        Logical Law & Form & Additional Form \\
+        \midrule
+        Commutative Law     & $p \lor q \iff q \lor p$
+                            & $p \land q \iff q \land p$ \\
+        Associative Law     & $p \lor (q \lor r) \iff (p \lor q) \lor r$
+                            & $p \land (q \land r) \iff (p \land q) \land r$ \\
+        Distributive Law    & $p \lor (q \land r) \iff (p \lor q) \land (p \lor r)$ 
+                            & $p \land (q \lor r) \iff (p \land q) \lor (p \land r)$ \\
+        Inverse Law         & $p \lor \neg p \iff t$
+                            & $p \land \neg p \iff c$ \\
+        Identity Law        & $p \lor c \iff p$
+                            & $p \land t \iff p$ \\
+        Double Negation Law & $\neg \neg p \iff p$ & \\
+        Idempotent Law      & $p \lor p \iff p$ 
+                            & $p \land p \iff p$ \\
+        Domination Law      & $p \lor t \iff t$
+                            & $p \land c \iff c$ \\
+        DeMorgan's Laws     & $\neg(p \lor q) \iff \neg p \land \neg q$
+                            & $\neg(p \land q) \iff \neg p \lor \neg q$ \\
+        Absorption Laws     & $p \lor (p \land q) \iff p$
+                            & $p \land (p \lor q) \iff p$ \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:laws-of-logic}
+    \caption{Laws of Logic. These statements hold true for any statements $p$, $q$, $r$, any tautology $t$, and contradiction $c$.}
+\end{table}
+
+\starON
+**Note:** The Inverse Law is also known as the Negation Law.
+
+**Note:** The Domination Law is also known as the Universal Bound Law.
+\starOFF
 
 \subsection{Conditional Statements}
 % TODO: Hypothesis, conclusion, implication
@@ -370,12 +472,12 @@ Note: In the biconditional, the hypothesis implies the conclusion and vice versa
     % ∀         , Universal     , For all elements of the set
     % E         , Existential   , There exists an element of the set
     \centering
-    \begin{tabular}{ *{2}{cc} }
+    \begin{tabular}{ c c l l  }
         \toprule
         Symbol      & LaTeX             & Name                      & Meaning \\
         \midrule
         $\exists$   & \verb|\exists|    & Existential Quantifier    & There exists at least one \\
-        $\forall$   & \verb|\forall|    & Existential Quantifier    & For all \\
+        $\forall$   & \verb|\forall|    & Universal Quantifier      & For all \\
         \bottomrule
     \end{tabular}
     \label{tab:tbl-quantifiers}
