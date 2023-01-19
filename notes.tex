@@ -447,14 +447,90 @@ $t$ and $c$.
 \starOFF
 
 \subsection{Conditional Statements}
-% TODO: Hypothesis, conclusion, implication
+
 % TODO: Truth table for p -> q
-% TODO: Definition of p -> q
+\begin{definition}[Conditional]\label{def:conditional}
+    If $p$, $q$ are statement variables, the conditional of $q$ by $p$
+    is a statement that is false when $p$ is true, and $q$ is false, and true
+    otherwise. $p$ is known as the hypothesis and $q$ is the conclusion.
+\end{definition}
 
-% TODO: Negation Contrapositive, Converse, Inverse defs
-% TODO: Biconditional def
+Conditional statements (also known as implications) are read as
+"if $p$ then $q$" or "$p$ implies $q$".
 
-% TODO: Necessary & sufficient conditions.
+Conditional statements are vacuously true (true by default).
+
+\subsection{Variants of Implication}
+
+\begin{definition}[Contrapositive]\label{def:contrapositive}
+    The contrapositive of conditional statement: "if $p$ then $q$",
+    is "if $\neg q$ then $\neg p$". Symbolically:
+    \begin{equation}
+        p \to q \iff \neg q \to \neg p
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Converse]\label{def:converse}
+    Given conditional statement: "if $p$ then $q$"
+    The converse is "if $q$ then $p$":
+    %\begin{equation}
+        %q 
+    %\end{equation}
+\end{definition}
+
+\begin{table}[!htbp]
+    \centering
+    \rowcolors{2}{}{gray!10}
+    \begin{tabular}{ l c c}
+        \toprule
+        Conditional Statement & Form                & $\iff$ $p \to q$ \\
+        \midrule
+        Implication         & $p \to q$             & Yes \\
+        Contrapositive      & $\neg q \to \neg p$   & Yes \\
+        Converse            & $q \to p$             & No \\
+        Inverse             & $\neg p \to \neg q$   & No \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:implication-variants}
+    \caption{Variants of Conditional Statements}
+\end{table}
+
+\starON
+**Note:** Although the converse and inverse are not logically equivalent to "if $p$ then $q$"
+they are logically equivalent to each other.
+\starOFF
+
+\begin{definition}[Only If]\label{def:only-if}
+    For statements $p$, $q$,
+    $p$ only if $q$ means "if not $q$ then not $p$".
+    or equivalently "if $p$ then $q$".
+\end{definition}
+
+\begin{definition}[Biconditional]\label{def:biconditional}
+    The biconditional of statements $p$, $q$ is
+    "$p$ if and only if $q$" denoted $p \iff q$. It
+    is true if both $p$ and $q$ share the same truth values
+    and false otherwise.
+\end{definition}
+
+
+\subsection{Logical Order of Operations}
+\begin{enumerate}
+    \item $\neg$
+    \item $\land$, $\lor$ (Parenthesis may be needed).
+    \item $\to$, $\iff$ (Parenthesis may be needed).
+\end{enumerate}
+
+\begin{definition}[Sufficient Condition]\label{def:sufficient-condition}
+    For statements $r$, $s$
+    $r$ is a sufficient condition for $s$ implies "if $r$ then $s$".
+\end{definition}
+
+\begin{definition}[Necessary Condition]\label{def:necessary-condition}
+    For statements $r$, $s$
+    $r$ is a necessary condition for $s$ implies "if not $r$ then not $s$".
+\end{definition}
+
 
 \subsection{Arguments}
 
