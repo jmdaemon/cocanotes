@@ -537,88 +537,24 @@ they are logically equivalent to each other.
     $r$ is a necessary condition for $s$ implies "if not $r$ then not $s$".
 \end{definition}
 
-
 \subsection{Arguments}
 
 % TODO: Arguments definition: Page: 66
 
-% TODO: Rules of Inference
-
-%\begin{*table}[!htbp]
 \begin{table}
-    %\vspace*{-2em}
-    %\centering
-    %\rowcolors{2}{}{gray!10}
     \caption{Rules of Inference}
-    \begin{subtable}[f]{0.5\textwidth}
-    %\centering
     \adjustbox{width=\textwidth}{
-    \begin{tabular}[f]{ *{2}{cc} }
+    \begin{tabular}[f]{ *{4}{cc} }
         \toprule
-        %Inference Rule & Argument Form \\
-        Inference Rule & Argument Form & Alternate Form \\
+        Inference Rule & Argument Form & Alternate Form  & Inference Rule & Argument Form & Alternate Form \\
         \midrule
-        %Modus Ponens & \multicolumn{2}{r}{asdf}asdf \\
         Modus Ponens    &
                         \begin{argument}
                             \premise{p \to q}
                             \premise{p}
                             \conclusion{q}
                         \end{argument}
-                        & \\
-        \midrule
-        Modus Tollens   &
-                        \begin{argument}
-                            \premise{p \to q}
-                            \premise{\neg q}
-                            \conclusion{\neg q}
-                        \end{argument}
-                        & \\
-        \midrule
-        Generalization  &
-                        \begin{argument}
-                            \premise{p}
-                            \conclusion{p \lor q}
-                        \end{argument}
-                        &
-                        \begin{argument}
-                            \premise{q}
-                            \conclusion{p \lor q}
-                        \end{argument} \\
-        \midrule
-        Specialization  &
-                        \begin{argument}
-                            \premise{p \land q}
-                            \conclusion{p}
-                        \end{argument}
-                        &
-                        \begin{argument}
-                            \premise{p \land q}
-                            \conclusion{q}
-                        \end{argument} \\
-        \midrule
-        Conjunction     &
-                        \begin{argument}
-                            \premise{p}
-                            \premise{q}
-                            \conclusion{p \land q}
-                        \end{argument}
-                        & \\
-        \bottomrule
-    \end{tabular}
-
-    }
-        
-    \end{subtable}
-    \label{tab:tbl-inference-rules-1}
-    \begin{subtable}[f]{0.5\textwidth}
-    %\centering
-    \adjustbox{width=\textwidth}{
-    %\begin{tabular}{ L{2cm} c c }
-    \begin{tabular}[f]{ c c c }
-        \toprule
-        Inference Rule  & Argument Form & Alternate Form \\
-        \midrule
+                        & &
         Elimination     & 
                         \begin{argument}
                             \premise{p \lor q}
@@ -632,6 +568,13 @@ they are logically equivalent to each other.
                             \conclusion{\neg q}
                         \end{argument} \\
         \midrule
+        Modus Tollens   &
+                        \begin{argument}
+                            \premise{p \to q}
+                            \premise{\neg q}
+                            \conclusion{\neg q}
+                        \end{argument}
+                        & &
         Transitivity    &
                         \begin{argument}
                             \premise{p \to q}
@@ -640,6 +583,17 @@ they are logically equivalent to each other.
                         \end{argument}
                         & \\
         \midrule
+        Generalization  &
+                        \begin{argument}
+                            \premise{p}
+                            \conclusion{p \lor q}
+                        \end{argument}
+                        &
+                        \begin{argument}
+                            \premise{q}
+                            \conclusion{p \lor q}
+                        \end{argument}
+                        &
         Proof By
         Division into Cases
                         &
@@ -651,6 +605,17 @@ they are logically equivalent to each other.
                         \end{argument}
                         & \\
         \midrule
+        Specialization  &
+                        \begin{argument}
+                            \premise{p \land q}
+                            \conclusion{p}
+                        \end{argument}
+                        &
+                        \begin{argument}
+                            \premise{p \land q}
+                            \conclusion{q}
+                        \end{argument}
+                        &
         Contradiction
         Rule
                         &
@@ -659,13 +624,18 @@ they are logically equivalent to each other.
                             \conclusion{p}
                         \end{argument}
                         & \\
+        \midrule
+        Conjunction     &
+                        \begin{argument}
+                            \premise{p}
+                            \premise{q}
+                            \conclusion{p \land q}
+                        \end{argument}
+                        & \\
         \bottomrule
     \end{tabular}
-    }
-    \end{subtable}
-    \label{tab:tbl-inference-rules-2}
+    \label{tab:tbl-inference-rules-1}
 \end{table}
-%\end{minipage}
 
 % TODO: Entire section of gotchas
 
