@@ -96,23 +96,7 @@
 
 \begin{document}
 
-% TODO: Make nice page
-% TODO: Refactor into a cover page
-
-% Cover Page
-\begin{titlepage}
-    \begin{center}
-        \vspace*{1cm}
-        \huge \textbf{Discrete Mathematics}
-
-        \vspace*{1.5em}
-
-        \Large{Joseph Diza}
-
-        \vfill
-    \end{center}
-\end{titlepage}
-\newpage
+\include{coverpage}
 
 % TODO: Add fancyhdr shit here
 
@@ -541,6 +525,7 @@ they are logically equivalent to each other.
 
 % TODO: Arguments definition: Page: 66
 
+\subsection{Rules of Inference}
 \begin{table}
     \caption{Rules of Inference}
     \adjustbox{width=\textwidth}{
@@ -634,7 +619,8 @@ they are logically equivalent to each other.
                         & \\
         \bottomrule
     \end{tabular}
-    \label{tab:tbl-inference-rules-1}
+    }
+    \label{tab:tbl-inference-rules}
 \end{table}
 
 % TODO: Entire section of gotchas
