@@ -8,6 +8,8 @@
 \usepackage{wrapfig}
 
 \usepackage{setspace}
+\usepackage{makecell}
+\usepackage{adjustbox}
 %\onehalfspacing
 \usepackage{titlesec}
 %\usepackage{parskip}
@@ -39,6 +41,14 @@
 \starON
 \def*{\starOFF \starparse}
 \starOFF
+
+% ==== Argument Environment ====
+\newenvironment{argument}
+  %{\begin{tabular}{@{}>{$}c<{$}@{\enspace}>{$}l<{$}@{}}\arrayrulecolor{blue!50}}
+  {\begin{tabular}{@{}>{$}c<{$}@{\enspace}>{$}l<{$}@{}}\arrayrulecolor{black!50}}
+  {\end{tabular}}
+\newcommand{\premise}[1]{&#1\\}
+\newcommand{\conclusion}[1]{\cline{2-2}\therefore&#1}
 
 % ==== Theorem Styles ====
 % Theorem environments are  : definition,
@@ -81,6 +91,8 @@
 \titleformat{\section}{\sffamily\upshape\bfseries\huge}{\thesection}{1em}{}
 \titleformat{\subsection}{\sffamily\upshape\bfseries\large}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\sffamily\upshape\bfseries}{\thesubsubsection}{1em}{} 
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \begin{document}
 
@@ -342,8 +354,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
 that both operands of the connective cannot both be simultaneously true.
 \starOFF
 
-%\hfill
-
 \subsubsection{Truth Values}
 
 $T$ is used to denote a true value and $F$ is used to denote a false value.
@@ -406,7 +416,7 @@ The usage depends on whichever variant is used. In our case we will use
 $t$ and $c$.
 \starOFF
 
-\section{Laws of Logic}
+\subsection{Laws of Logic}
 
 \begin{table}[!htbp]
     \centering
@@ -436,7 +446,7 @@ $t$ and $c$.
                             & $p \land (p \lor q) \iff p$ \\
         \bottomrule
     \end{tabular}
-    \label{tab:laws-of-logic}
+    \label{tab:tbl-laws-of-logic}
     \caption{Laws of Logic. These statements hold true for any statements $p$, $q$, $r$, any tautology $t$, and contradiction $c$.}
 \end{table}
 
@@ -473,9 +483,6 @@ Conditional statements are vacuously true (true by default).
 \begin{definition}[Converse]\label{def:converse}
     Given conditional statement: "if $p$ then $q$"
     The converse is "if $q$ then $p$":
-    %\begin{equation}
-        %q 
-    %\end{equation}
 \end{definition}
 
 \begin{table}[!htbp]
@@ -491,7 +498,7 @@ Conditional statements are vacuously true (true by default).
         Inverse             & $\neg p \to \neg q$   & No \\
         \bottomrule
     \end{tabular}
-    \label{tab:implication-variants}
+    \label{tab:tbl-implication-variants}
     \caption{Variants of Conditional Statements}
 \end{table}
 
@@ -513,7 +520,6 @@ they are logically equivalent to each other.
     and false otherwise.
 \end{definition}
 
-
 \subsection{Logical Order of Operations}
 \begin{enumerate}
     \item $\neg$
@@ -522,12 +528,12 @@ they are logically equivalent to each other.
 \end{enumerate}
 
 \begin{definition}[Sufficient Condition]\label{def:sufficient-condition}
-    For statements $r$, $s$
+    For statements $r$, $s$,
     $r$ is a sufficient condition for $s$ implies "if $r$ then $s$".
 \end{definition}
 
 \begin{definition}[Necessary Condition]\label{def:necessary-condition}
-    For statements $r$, $s$
+    For statements $r$, $s$,
     $r$ is a necessary condition for $s$ implies "if not $r$ then not $s$".
 \end{definition}
 
@@ -537,6 +543,129 @@ they are logically equivalent to each other.
 % TODO: Arguments definition: Page: 66
 
 % TODO: Rules of Inference
+
+%\begin{*table}[!htbp]
+\begin{table}
+    %\vspace*{-2em}
+    %\centering
+    %\rowcolors{2}{}{gray!10}
+    \caption{Rules of Inference}
+    \begin{subtable}[f]{0.5\textwidth}
+    %\centering
+    \adjustbox{width=\textwidth}{
+    \begin{tabular}[f]{ *{2}{cc} }
+        \toprule
+        %Inference Rule & Argument Form \\
+        Inference Rule & Argument Form & Alternate Form \\
+        \midrule
+        %Modus Ponens & \multicolumn{2}{r}{asdf}asdf \\
+        Modus Ponens    &
+                        \begin{argument}
+                            \premise{p \to q}
+                            \premise{p}
+                            \conclusion{q}
+                        \end{argument}
+                        & \\
+        \midrule
+        Modus Tollens   &
+                        \begin{argument}
+                            \premise{p \to q}
+                            \premise{\neg q}
+                            \conclusion{\neg q}
+                        \end{argument}
+                        & \\
+        \midrule
+        Generalization  &
+                        \begin{argument}
+                            \premise{p}
+                            \conclusion{p \lor q}
+                        \end{argument}
+                        &
+                        \begin{argument}
+                            \premise{q}
+                            \conclusion{p \lor q}
+                        \end{argument} \\
+        \midrule
+        Specialization  &
+                        \begin{argument}
+                            \premise{p \land q}
+                            \conclusion{p}
+                        \end{argument}
+                        &
+                        \begin{argument}
+                            \premise{p \land q}
+                            \conclusion{q}
+                        \end{argument} \\
+        \midrule
+        Conjunction     &
+                        \begin{argument}
+                            \premise{p}
+                            \premise{q}
+                            \conclusion{p \land q}
+                        \end{argument}
+                        & \\
+        \bottomrule
+    \end{tabular}
+
+    }
+        
+    \end{subtable}
+    \label{tab:tbl-inference-rules-1}
+    \begin{subtable}[f]{0.5\textwidth}
+    %\centering
+    \adjustbox{width=\textwidth}{
+    %\begin{tabular}{ L{2cm} c c }
+    \begin{tabular}[f]{ c c c }
+        \toprule
+        Inference Rule  & Argument Form & Alternate Form \\
+        \midrule
+        Elimination     & 
+                        \begin{argument}
+                            \premise{p \lor q}
+                            \premise{\neg q}
+                            \conclusion{p}
+                        \end{argument}
+                        &
+                        \begin{argument}
+                            \premise{p \lor q}
+                            \premise{\neg p}
+                            \conclusion{\neg q}
+                        \end{argument} \\
+        \midrule
+        Transitivity    &
+                        \begin{argument}
+                            \premise{p \to q}
+                            \premise{q \to r}
+                            \conclusion{p \to r}
+                        \end{argument}
+                        & \\
+        \midrule
+        Proof By
+        Division into Cases
+                        &
+                        \begin{argument}
+                            \premise{p \lor q}
+                            \premise{p \to r}
+                            \premise{q \to r}
+                            \conclusion{r}
+                        \end{argument}
+                        & \\
+        \midrule
+        Contradiction
+        Rule
+                        &
+                        \begin{argument}
+                            \premise{\neg p \to c}
+                            \conclusion{p}
+                        \end{argument}
+                        & \\
+        \bottomrule
+    \end{tabular}
+    }
+    \end{subtable}
+    \label{tab:tbl-inference-rules-2}
+\end{table}
+%\end{minipage}
 
 % TODO: Entire section of gotchas
 
