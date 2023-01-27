@@ -4,6 +4,7 @@
 \usepackage[table]{xcolor}
 \usepackage[noparindent]{coco}
 \usepackage{code}
+\usepackage{discrete}
 
 \usepackage[numbersets,logic]{shortmath}
 \usepackage{thmtools}
@@ -24,14 +25,6 @@
     right=2cm,
     bottom=2cm,
 }
-
-% ==== Argument Environment ====
-\newenvironment{argument}
-  %{\begin{tabular}{@{}>{$}c<{$}@{\enspace}>{$}l<{$}@{}}\arrayrulecolor{blue!50}}
-  {\begin{tabular}{@{}>{$}c<{$}@{\enspace}>{$}l<{$}@{}}\arrayrulecolor{black!50}}
-  {\end{tabular}}
-\newcommand{\premise}[1]{&#1\\}
-\newcommand{\conclusion}[1]{\cline{2-2}\therefore&#1}
 
 % ==== Theorem Styles ====
 % Theorem environments are  : definition,
