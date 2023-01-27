@@ -3,19 +3,17 @@
 % Imports
 \usepackage[table]{xcolor}
 \usepackage[noparindent]{coco}
+\usepackage[numbersets,logic]{shortmath}
 \usepackage{code}
 \usepackage{discrete}
+\usepackage{thmstyles}
 
-\usepackage[numbersets,logic]{shortmath}
-\usepackage{thmtools}
 \usepackage{wrapfig}
 
 \usepackage{setspace}
 \usepackage{makecell}
 \usepackage{adjustbox}
-%\onehalfspacing
 \usepackage{titlesec}
-%\usepackage{parskip}
 
 % Make better use of the page
 % TODO: We'll keep margins like this until we add in margin notes
@@ -26,37 +24,6 @@
     bottom=2cm,
 }
 
-% ==== Theorem Styles ====
-% Theorem environments are  : definition,
-% Theorem styles are        :
-    
-% Declare theorem styles
-%\theoremstyle{definition}
-
-%\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={nobreak}]{thmgreenbox}
-%\declaretheorem[numberwithin=section, style=thmgreenbox , name=Definition]{definition}
-
-%\theoremstyle{definition}
-%\newtheorem{definition}{Definition}[section]
-
-% Theorem environment with custom names
-\declaretheoremstyle[
-    spaceabove=\topsep,
-    spacebelow=\topsep,
-    headfont=\bfseries\sffamily,
-    bodyfont=\normalfont,
-    notefont=\bfseries, notebraces={}{},
-    postheadspace=0.5em,
-    name={\ignorespaces},
-    numbered=no,
-    mdframed={nobreak}, % Make boxed
-    headpunct=:
-]{definition}
-\declaretheorem[style=definition]{definition}
-
-% TODO: Create theorem style where the name of the thing is actually shown
-
-% TODO: Remove disgusting paragraph indent
 \setlength{\lineskip}{0.0pt}
 \setlength{\lineskiplimit}{0pt}
 \setlength{\baselineskip}{0pt}
