@@ -17,10 +17,7 @@
 % Make better use of the page
 % TODO: We'll keep margins like this until we add in margin notes
 \geometry{
-    left=2cm,
-    top=2cm,
-    right=2cm,
-    bottom=2cm,
+    margin=2cm,
 }
 
 \setlength{\lineskip}{0.0pt}
@@ -585,9 +582,54 @@ they are logically equivalent to each other.
     \caption{Quantifiers}
 \end{table}
 
+% TODO: Truth Set
+\begin{definition}[Truth Set]\label{def:truth-set}
+    For a predicate $P(x)$, and domain $D$, the set of all elements of $D$ 
+    for which $P(x)$ holds true is known as the truth set.
+    \begin{equation*}
+        \{ x \in D \mid P(x) \}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Universal Quantified Statements]\label{def:universal-quantified-stmts}
+    For a predicate $Q(x)$, domain $D$, a universal statement is of the form:
+    \begin{equation*}
+        \forall x \in D \mid Q(x)
+    \end{equation*}
+
+    This statement is true if and only if the predicate $Q(x)$ is true for every element of $D$.
+    If even one counterexample is found, then the statement is false.
+\end{definition}
+
+\begin{definition}[Existential Quantified Statements]\label{def:existential-quantified-stmts}
+    For a predicate $Q(x)$, domain $D$, an existential statement is of the form:
+    \begin{equation*}
+        \exists x \in D \mid Q(x)
+    \end{equation*}
+
+    This statement is true if and only if there exists a single element for which the 
+    predicate $Q(x)$ is true. It is false if no elements exist that uphold the predicate.
+\end{definition}
+
 Variable binding is the restriction of a variable to its quantifier.
 
 Variable scope refers to the lifetime of a given variable.
+
+\begin{definition}[Negation of Universal Statements]\label{def:neg-universal-stmts}
+    \begin{equation*}
+        \lsim (\forall x \in D, Q(x)) \equiv \exists x \in D \text{ such that } \lsim Q(x)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Negation of Existential Statements]\label{def:neg-existential-stmts}
+    \begin{equation*}
+        \lsim (\exists x \in D, Q(x)) \equiv \forall x \in D \text{ such that } \lsim Q(x)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Universal Instantiation]\label{def:universal-instantiation}
+    If a property is true for all elements of a set, then it is true of any element taken from the set.
+\end{definition}
 
 % TODO: Brief description, formal definition of implicit quantification
 
