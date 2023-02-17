@@ -7,6 +7,7 @@
 \usepackage{code}
 \usepackage{discrete}
 \usepackage{thmstyles}
+\usepackage{boxstyles}
 
 \usepackage{wrapfig}
 \usepackage{setspace}
@@ -487,14 +488,14 @@ they are logically equivalent to each other.
                         \begin{argument}
                             \premise{p \lor q}
                             \premise{\neg p}
-                            \conclusion{\neg q}
+                            \conclusion{q}
                         \end{argument} \\
         \midrule
         Modus Tollens   &
                         \begin{argument}
                             \premise{p \to q}
                             \premise{\neg q}
-                            \conclusion{\neg q}
+                            \conclusion{\neg p}
                         \end{argument}
                         & &
         Transitivity    &
@@ -631,12 +632,24 @@ Variable scope refers to the lifetime of a given variable.
     If a property is true for all elements of a set, then it is true of any element taken from the set.
 \end{definition}
 
-% TODO: Brief description, formal definition of implicit quantification
+\begin{bbox}{\centering Universal Modus Ponens}
+    \begin{center}
+        \begin{argument}
+        \premise{\forall x, \text{ if } P(x) \text{ then } $Q(x)$}
+        \premise{$P(a)$ \text{ for a particular } $a$}
+        \conclusion{$Q(a)$}
+    \end{argument}
+    \end{center}
+\end{bbox}
 
-% Negation of a universal, existential statement
-% Order of quantifiers
+\begin{bbox}{\centering Universal Modus Tollens}
+    \begin{center}
+        \begin{argument}
+        \premise{\forall x, \text{ if } P(x) \text{ then } $Q(x)$}
+        \premise{\lsim Q(a) \text{ for a particular } a}
+        \conclusion{\lsim P(a)}
+    \end{argument}
+    \end{center}
+\end{bbox}
 
-% TODO: Instantiation
-% Universal instantiation
-    
 \end{document}
