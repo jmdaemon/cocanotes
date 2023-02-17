@@ -583,6 +583,45 @@ they are logically equivalent to each other.
     \caption{Quantifiers}
 \end{table}
 
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ c l }
+        \toprule
+        Name & Rule \\
+        \midrule
+        Universal Instantiation &
+        \begin{argument}
+            \premise{\forall x P(x)}
+            \conclusion{P(c)}
+        \end{argument} \\
+        \addlinespace[0.5em]
+
+        Universal Generalization &
+        \begin{argument}
+            \premise{P(c)}
+            \conclusion{\forall x P(x)}
+        \end{argument} \\
+        \addlinespace[0.5em]
+
+        Existential Instantiation &
+        \begin{argument}
+            \premise{\exists x P(x)}
+            \conclusion{P(c) \text{ for some element of } c}
+        \end{argument} \\
+        \addlinespace[0.5em]
+
+        Existential Generalization &
+        \begin{argument}
+            \premise{P(c) \text{ for some element of } c}
+            \conclusion{\exists x P(x)}
+        \end{argument} \\
+        \addlinespace[0.5em]
+        \bottomrule
+    \end{tabular}
+    \label{tab:quantifier-instantiation}
+    \caption{Quantifier Instantiations}
+\end{table}
+
 % TODO: Truth Set
 \begin{definition}[Truth Set]\label{def:truth-set}
     For a predicate $P(x)$, and domain $D$, the set of all elements of $D$ 
