@@ -8,6 +8,7 @@
 \usepackage{discrete}
 \usepackage{thmstyles}
 \usepackage{boxstyles}
+\usepackage{changepage}
 
 \usepackage{wrapfig}
 \usepackage{setspace}
@@ -466,7 +467,9 @@ they are logically equivalent to each other.
 \subsection{Rules of Inference}
 \begin{table}
     \caption{Rules of Inference}
-    \adjustbox{width=\textwidth}{
+    \begin{adjustwidth}{-1.5cm}{-1.5cm}
+    \centering
+    \adjustbox{width=1.1\textwidth}{
     \begin{tabular}[f]{ *{4}{cc} }
         \toprule
         Inference Rule & Argument Form & Alternate Form  & Inference Rule & Argument Form & Alternate Form \\
@@ -558,6 +561,7 @@ they are logically equivalent to each other.
         \bottomrule
     \end{tabular}
     }
+    \end{adjustwidth}
     \label{tab:tbl-inference-rules}
 \end{table}
 
