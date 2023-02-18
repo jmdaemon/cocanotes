@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage[noparindent]{coco}
+\usepackage[numbersets]{shortmath}
+\usepackage{thmstyles}
+
+\geometry{
+    left=2cm,
+    top=2cm,
+    right=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+% Cover Page
+\begin{titlepage}
+    \begin{center}
+        \Huge Calculus
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\section{Calculus}
+
+\section{Fundamentals}
+
+% TODO: Inequalities with Abs 
+% TODO: Midpoint of an interval
+% TODO: Factoring Review
+% TODO: Quadratic Formula, Special Products (Page 19), Binomial Theorem, Grouping,
+% TODO: Synthetic Division, Long Division, Rational Zero Theorem5
+% TODO: Finding intercepts
+
+% TODO: Distance Formula, Pythagorean Theorem, Midpoint Formula,
+% TODO: Standard form of the equation of a circle (page 47)
+% TODO: Completing the square (Page 48)
+% TODO: Finding points of intersection (Page 49)
+
+\section{Formulas} %
+
+\begin{equation*}
+    
+\end{equation*}
+
+\section{Business}
+
+Supply equation: The relationship of a quantity supplied $x$ to the unit price $p$ of a product.
+
+Demand equation: The relationship of a quantity demanded $x$ to the unit price $p$ of a product.
+
+Cost function: The total cost produced for $x$ many products.
+
+Revenue function: The total revenue generated for selling $x$ many products.
+
+Profit function: The total profit gained for selling $x$ many products
+
+Break-even point: The equilibrium point where $R = C$
+
+\subsection{Marginals}
+
+% TODO: Linear equations, slope-intercept form, standard form, point-slope form
+% TODO: Slope formula of two points, slope for parallel, perpendicular lines
+% TODO: Equations of lines (Page 62)
+
+% TODO: Definition of a function, independent, dependent variables, domain, range
+% TODO: Determining functions, vertical line test (Page 71)
+% TODO: Function composition (Page 74)
+
+% TODO: Definition of one-to-one, horizontal line test (Page 71)
+% TODO: Definition of inverse function, how to determine inverse functions (Page 75)
+
+\section{Limits}
+
+\begin{definition}[Definition of a Limit]\label{def:limit}
+    If $f(x)$ becomes arbitrarily close to a number $L$ as $x$ approaches $c$ from either side then
+    \begin{equation*}
+        \lim_{x \to c} F(x) = L
+    \end{equation*}
+    The limit of $f(x)$ as $x$ approaches $c$ is $L$.
+\end{definition}
+
+\subsection{Limit Properties}
+% TODO: Properties of Limits (Page 84-85)
+% Make boxed environments
+% Properties of Limits
+
+\subsection{Limit Operations}
+
+\begin{definition}[Existence of a Limit]\label{def:limit-exists}
+    If $f$ is a function, and $c$, $L$ are real numbers, then
+    \begin{equation*}
+        \lim_{x \to c} f(x) = L
+    \end{equation*}
+    if and only if
+    \begin{equation*}
+        \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = L
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Definition of Continuity]\label{def:continuity}
+    Let $c$ be a number in the interval $(a,b)$, and let $f$ be a function whose domain
+    contains the interval $(a,b)$. The function $f$ is continuous at the point $c$ if:
+    \begin{enumerate}
+        \item $f(c)$ is defined.
+        \item $\lim_{x \to c} f(x)$ exists
+        \item $\lim_{x \to c} f(x) = f(x) = L$
+    \end{enumerate}
+    If $f$ is continuous at every point in the interval $(a,b)$ then it is continuous on
+    an open interval $(a,b)$.
+\end{definition}
+
+\subsection{Continuity for Various Functions}
+
+% TODO: Continuity of polynomial, rational functions (Page 95)
+% Table for continuity for various functions
+
+% Function Name | Symbol | Domain | Range
+% Rational Function | P(X) / Q(X) | x \neq 0 | \R
+% Polynomial Functions | ax^n + bx^n-1 + ... | x \in \R | x \in \R
+
+\begin{definition}[Continuity on a Closed Interval]\label{def:continuity-closed-int}
+    Let $f$ be defined on a closed interval $[a,b]$.
+    If $f$ is continuous on the open interval $(a,b)$ and
+    \begin{equation*}
+        \begin{aligned}
+            \lim_{x \to a^+} f(a) & \text{ and } & \lim_{x \to b^-} f(b)
+        \end{aligned}
+    \end{equation*}
+    then $f$ is continous on the closed interval $[a,b]$,
+    as well as the left and right endpoints.
+\end{definition}
+
+% TODO: Step function, floor, ceiling functions (Page 98)
+
+% TODO: Formula for simple and compound interests
+
+% TODO: Tangent lines, secant lines (Page 115, 117)
+
+\section{Theorems}
+
+\subsection{Intermediate Value Theorem}
+
+
+\subsection{Squeeze Theorem}
+
+\section{Derivatives}
+
+\begin{definition}[Definition of a Derivative]\label{def:derivative}
+    The derivative of $f$ at $x$ is:
+    \begin{equation*}
+        f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+    \end{equation*}
+    given that the limit exists and the function is differentiable at $x$.
+\end{definition}
+
+Derivatives do not exist at:
+
+\begin{itemize}
+    \item Vertical lines/tangents: The reason is often division by zero, but additionally the curve is too sharp.
+    \item Discontinuities: The limit does not exist.
+    \item Cusps: The function is too sharp.
+    \item Nodes: The function changes sign too quickly/cannot differentiate with just one point.
+\end{itemize}
+
+Note that differentiability implies continuity. If a function
+$f$ is differentiable at $x = c$ then $f$ is continuous at $x = c$.
+
+\subsection{Differentiation Rules}
+
+% TODO: Differentiation Rules (Pages: 126, 127, 129, 132) 
+
+\end{document}
