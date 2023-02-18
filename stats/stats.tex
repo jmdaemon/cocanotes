@@ -1,0 +1,280 @@
+\documentclass[11pt]{article}
+\usepackage[noparindent]{coco}
+\usepackage{thmstyles}
+
+% TODO: Remove disgusting paragraph indent
+\setlength{\lineskip}{0.0pt}
+\setlength{\lineskiplimit}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\baselineskip}{0pt}
+
+\geometry{
+    margin=2cm
+}
+
+%\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+%\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+\newcommand{\comb}[2]{{}_{#1}\mathrm{C}_{#2}}
+\newcommand{\perm}[2]{{}_{#1}\mathrm{P}_{#2}}
+
+%\newcommand\perm[2][^n]{\prescript{{}_{#1\mkern-2.5mu}}{}P_{#2}}
+%\newcommand\comb[2][^n]{\prescript{{}_{#1\mkern-0.5mu}}{}C_{#2}}
+
+\begin{document}
+
+% cover page
+\begin{titlepage}
+    \begin{center}
+        \Huge Statistics
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+
+\section{Statistics}
+
+Statistics is the science of conducting studies to collect, organize, summarize, analyze and draw conclusions from data.
+
+Statistics is divided into two subfields based upon how data is used:
+\begin{enumerate}
+    \item Descriptive statistics: Consists of the collection, organization, summarization,
+        and presentation of data. No conclusions are drawn, only data described.
+    \item Inferential statistics: Consists of generalizing samples from populations,
+        performing estimations, and hypothesis testing, determining relationships between
+        variables, and making predictions.
+\end{enumerate}
+
+\section{Data}
+
+\subsection{Types of Data}
+
+% TODO: Definitions for Categorical, Numerical
+
+% TODO: Classifications definitions for:
+% Categorical: Nominal, Ordinal
+% Numerical: Interval, Ratio
+
+\subsection{Categorical}
+
+%\begin{definition}[Categorical]\label{def:categorical}
+    %Qualitative / Categorical variables have some distinct categories according to some 
+%\end{definition}
+
+\subsection{Numerical}
+
+%\section{Classifications of Data}
+
+%For categorical there are two classifications of data...
+
+%For numerical there are two classifications of data...
+
+%\section{Data Collection \& Sampling Techniques}
+% TODO: Classification tables
+
+% TODO: Parameters & Statistics
+% TODO: Discrete vs Continuous variables
+
+\section{Samples}
+
+% Define: Population, Unit, Sample
+% Quick Definitions as well as helpful table for sampling techniques
+% Small subsections for each sampling technique
+% Define Bias
+
+\section{Diagrams}
+
+% Define: Peak, Unimodal, Bimodal, Multimodal, Symmetric, Uniform, Bell-shaped, Tail, Left-Right Skews
+% TODO Diagrams:
+% - Ogives (Cumulative Frequency Polygons)
+% - Frequency Polygyons
+% - Bar Graphs, Histograms, Dot plots, Box & Whisker Plots, Grouped Frequency Distributions
+% - Circle Graphs / Pie Charts (Central Angles, Percentage estimations)
+% - Least Squares Regression Lines (Estimation, ensuring half data points on either side of line)
+% - Stem & Leaf plots
+
+\section{Calculations}
+
+% TODO: Sample stdev, population stddev
+% TODO: Range, Class Width, Determining class limits, class boundaries, percentiles
+% TODO: Mean, Median, Mode, Midrange
+
+% TODO: Estimated mean, estimated stddev
+
+% TODO: Regressions, Correlation Coefficient r
+% TODO: PPMC, Critical Values, Degrees of Freedom
+% TODO: Probability
+
+\subsection{Shorthand Calculations}
+
+% TODO: Regressions, stddev, etc
+
+\section{Probability}
+
+\begin{definition}[Event]\label{def:event}
+    Collection of outcomes of a probability experiment
+\end{definition}
+
+\begin{definition}[Sample Space]\label{def:sample-space}
+    The set of all possible outcome of a probability experiment.
+\end{definition}
+
+\begin{definition}[Classical Probability]\label{def:Classical Probability}
+    The ratio for the number of desired outcomes of an event
+    and the number of all possible events in the sample space.
+\end{definition}
+
+\textbf{NOTE} Exhaustive means that for all outcomes of an event, that set is equal to the sample space (Probability is 100\%).
+
+\begin{definition}[Mutually Exclusive]\label{def:mutually-exclusive}
+    Any two events that cannot happen simultaneously
+\end{definition}
+
+\begin{definition}[Independent Events]\label{def:independent-events}
+    Two events are independent if the outcome of the first event,
+    does not effect the outcome of the second.
+\end{definition}
+
+\subsection{Rules}
+
+The domain of probabilities is $0 \leq P(A) \leq 1$ for any given event A.
+
+The probability of the sample space is $P(S) = 1$
+
+\begin{definition}[Addition Rule]\label{def:addition-rule}
+    The addition rule for any mutually exclusive events:
+    
+    \begin{equation*}
+        P (A \cup B) = P (A) + P(B)
+    \end{equation*}
+
+    The addition rule for any two sets:
+    \begin{equation*}
+        P (A \cup B) = P (A) + P(B) - P(A \cap B)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Complement Rule]\label{def:complement-rule}
+    The complement of any event $A$ that is $\bar{A}$ (all events but A) is
+    \begin{equation*}
+        P(\bar{A}) = 1 - P(A)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Multiplication Rule]\label{def:multiplication-rule}
+    The probability for any two events that occur consecutively:
+    \begin{equation*}
+        P (A \cap B) = P(A) \times P(B \mid A)
+    \end{equation*}
+
+    For any two independent events $A$, $B$:
+    \begin{equation*}
+        P (A \cap B) = P(A) \times P(B)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Conditional Probability]\label{def:conditional-probability}
+    The probability that event $B$ occurs after event $A$ already occurred:
+    \begin{equation*}
+        P (B \mid A) = \frac{P(A \cap B)}{P(A)}
+    \end{equation*}
+    where $P(A) \neq 0$.
+
+    In the case of independent events then:
+    \begin{equation*}
+        P (B \mid A) = P(B)
+    \end{equation*}
+    in other words, no information is gained from the knowledge of event $A$.
+\end{definition}
+
+\begin{definition}[Bayes' Theorem]\label{def:bayes-thm}
+    \begin{equation*}
+        P(A | B) = \frac{P(B | A) P(A)}{P(B)}
+    \end{equation*}
+    where $P(B) \neq 0$
+\end{definition}
+
+\begin{definition}[Law of Total Probability]\label{def:law-total-prob}
+    \begin{equation*}
+        P(A) = \sum_n P(A \cap B_n)
+    \end{equation*}
+    or 
+    \begin{equation*}
+        P(A) = \sum_n P(A \mid B_n) P(B_n)
+    \end{equation*}
+    For events $A$, $B_n$ where $B_1$, $B_2$, ... $B_n$ are mutually exclusive.
+\end{definition}
+
+\subsection{Probability Distributions}
+
+\begin{definition}[Expectation]\label{def:expectation}
+    Expectation is the weighted mean of a discrete random variable $X$
+    that takes on the values $x_1$, $x_2$, ... $x_n$ is:
+    \begin{equation*}
+        \mu_x = \sum_{i = 1}^n x_i P(X = x_i)
+    \end{equation*}
+
+    The variance of $X$ is:
+    \begin{equation*}
+        {\sigma_x}^2 = \sum_{i = 1}^n (x_i - \mu_x)^2 P(X = x_i)
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Binomial Probability]\label{def:binom-prob}
+    \begin{equation*}
+        P_r = \comb{n}{r} \cdot p^r (1 - p)^{n-r}
+    \end{equation*}
+
+    where:
+
+    \begin{itemize}
+        \item $\comb{n}{r}$: The number of possible combinations
+        \item $p$: Probability of success
+        \item $1 - p$: Probability of failure
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Mean for Binomial Probability]\label{def:mean-binom-prob}
+    \begin{equation*}
+        \mu = n p
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Standard Deviation for Binomial Probability]\label{def:stddev-binom-prob}
+    \begin{equation*}
+        \sigma = \sqrt{np (1-p)}
+    \end{equation*}
+\end{definition}
+
+\section{Combinatorics \& Permutations}
+
+\begin{definition}[Fundamental Counting Principle]\label{def:fund-count-principle}
+    If there are $m$ ways to do something and $n$ ways to do something else, then there are
+    $m \times n$ ways to do both things.
+\end{definition}
+
+\begin{definition}[Combinations Formula]\label{def:combinations-formula}
+    The total number of combinations of $r$ elements chosen from a set of $n$ possible elements is:
+    \begin{equation*}
+        \comb{n}{r} = \frac{n!}{r!(n-r)!}\quad
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Permutations Formula]\label{def:permutations-formula}
+    The total number of specific orders of possible arrangements of $r$
+    elements from a set of $n$ elements is:
+    \begin{equation*}
+        \perm{n}{r} = \frac{n!}{(n-r)!}\quad
+    \end{equation*}
+
+    The number of permutations of $n$ objects with $n_1$ identical objects
+    of one type, $n_2$ identical objects of another, and $n_k$ identical objects
+    of $k$, then:
+    \begin{equation*}
+        \frac{n!}{n_{1!}n_{2!} ... n_{k!}}
+    \end{equation*}
+\end{definition}
+
+\end{document}
