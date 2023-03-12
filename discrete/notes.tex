@@ -705,4 +705,22 @@ Variable scope refers to the lifetime of a given variable.
     \end{center}
 \end{bbox}
 
+\section{Proofs}
+
+\begin{definition}[Prime]\label{def:prime}
+    An integer $n$ is prime if and only if $n > 1$ for all positive integers $r$, and $s$.
+    If $n = rs$ then $r$ or $s$ equals $n$.
+    \begin{equation*}
+    \forall r,s \in Z^+, (n = rs) \to ((r = 1) \land s = n) \lor ((r = n) \land (s = 1))
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Composite]\label{def:composite}
+    An integer $n$ is composite if and only if $n > 1$ for all positive integers $r$, and $s$.
+    If $n = rs$ then $r$ or $s$ equals $n$ with $1 < r < n$ and $1 < s < n$.
+    \begin{equation*}
+        \exists r,s \in Z^+ \text{ such that } n = rs \land 1 < r < n \land 1 < s < n
+    \end{equation*}
+\end{definition}
+
 \end{document}
