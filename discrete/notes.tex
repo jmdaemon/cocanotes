@@ -253,9 +253,41 @@ In other words, all elements of one tuple must be equal to all the elements of t
 
 \section{Properties of Sets}
 
+\subsection{Subsets}
+
+\begin{definition}[Subset]\label{def:subset}
+    For sets $A$, $B$,
+    \begin{equation*}
+    \end{equation*}
+    \begin{align*}
+        A \subseteq B &\iff \forall x, \text{ if $x \in A$, then $x \in B$} \\
+        \text{ The negation is therefore: } & \\
+        A \not \subseteq B &\iff \exists x \text{ such that $x \in A$ and $x \notin B$}
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Proper Subset]\label{def:proper-subset}
+    $A$ is a proper subset of $B$ $\iff$
+    \begin{enumerate}
+        \item $A \subseteq B$ and
+        \item there is at least one element in $B$ that is not in $A$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Element Argument]\label{def:element-argument}
+    For proving that one set is a subset of another, we use the element argument.
+
+    Let sets $X$ and $Y$ be given. To prove $X \subseteq Y$:
+    \begin{enumerate}
+        \item Suppose that $x$ is a particular but arbitrarily chosen element of $X$
+        \item Show that $x$ is an element of $Y$
+    \end{enumerate}
+\end{definition}
+
 \subsection{Subset Relations}
 
 \begin{definition}[Subset Relations]\label{def:subset-relations}
+
     \begin{enumerate}
         \item Inclusion of Intersection: For all sets $A$ and $B$,
             \begin{equation*}
@@ -957,7 +989,7 @@ Carrying still works in both binary addition and subtraction.
     $x$ is not related to $y$ by $\mathrel{R}$ if 
 
     \begin{equation*}
-        x \nrel y \text { means that } (x,y) \notin \nrel
+        x \nrel y \text { means that } (x,y) \notin \rel
     \end{equation*}
 
     Note that for a relation, the set $A$ is the domain of
@@ -1060,7 +1092,7 @@ For a sequence
 
 \subsection{Sum Notation}
 
-\begin{definition}[Sums]\label{def:sum}
+\begin{definition}[Sum]\label{def:sum}
     If $m$ and $n$ are integers and $m \leq n$, the summation
     from $k$ equals $m$ of $a$-sub-$k$, denoted$\sum_{k=m}^n a_k$,
     is the sum of all the terms $a_m, a_{m+1} a_{m+2}, ..., a_n$.
@@ -1111,7 +1143,7 @@ For a sequence
         \text{1.} & \sum_{k=m}^n a_k + \sum_{k=m}^n b_k = \sum_{k=m}^n (a_k + b_k) \\
         \text{2.} & c \cdot \sum_{k=m}^n a_k = \sum_{k=m}^n c \cdot a_k \\
         \text{3.} & \Biggl( \prod_{k=m}^n a_k \Biggl) \cdot \Biggl( \prod_{k=m}^n b_k \Biggl) =
-                    \Biggl( \prod_{k=m}^n (a_k \cdot b_k) \Biggl) \\
+                    \prod_{k=m}^n (a_k \cdot b_k) \\
     \end{align*}
 
     %\begin{enumerate}
