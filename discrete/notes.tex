@@ -39,6 +39,10 @@
 
 \newcommand\rel{\mathrel{R}}
 \newcommand\nrel{\not \mathrel{R}}
+\newcommand*\from{\colon}
+
+
+\newcommand\fn[3]{#1 \from #2 \mapsto #3}
 
 \begin{document}
 
@@ -813,26 +817,25 @@ Carrying still works in both binary addition and subtraction.
     the unique element in $B$ related by $x$, read as "$F$ of $x$".
 \end{definition}
 
-
 \subsection{Function Machines}
 
 \begin{definition}[Squaring Function]\label{def:sqr-fn}
     \begin{equation*}
-        f: x \mapsto x^2
+        \fn{f}{x}{x^2}
     \end{equation*}
     from $\R$ to $\R$
 \end{definition}
 
 \begin{definition}[Successor Function]\label{def:succ-fn}
     \begin{equation*}
-        g: n \mapsto n + 1
+        \fn{g}{n}{n + 1}
     \end{equation*}
     from $\Z$ to $\Z$
 \end{definition}
 
 \begin{definition}[Constant Function]\label{def:const-fn}
     \begin{equation*}
-        h: r \mapsto n
+        \fn{h}{r}{n}
     \end{equation*}
     from $\Q$ to $\Z$, where $n$ is any constant number.
 \end{definition}
