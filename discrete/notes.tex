@@ -734,6 +734,47 @@ Variable scope refers to the lifetime of a given variable.
     \end{equation*}
 \end{definition}
 
+\subsection{Mathematical Induction}
+
+\begin{definition}[Induction]\label{def:induction}
+    Let $P(n)$ be a property that is defined for integers $n$, and $a$ is 
+    a fixed integer constant. Suppose the following two statements are true:
+    \begin{enumerate}
+        \item $P(a)$ is true.
+        \item For every integer $k \geq a$ if $P(a)$ is true then $P(k+1)$ is true.
+    \end{enumerate}
+    
+    Then the statement 
+    \begin{equation*}
+        \text{ for every integer $n \geq a$, $P(n)$ }
+    \end{equation*}
+\end{definition}
+
+To prove by mathematical induction, you need to follow these steps.
+
+\begin{definition}[Method of Proof]\label{def:induction-steps}
+    \begin{enumerate}
+        \item Show that $P(a)$ is true.
+        \item Show that for every integer $k \geq a$ if $P(k)$ is true then
+            $P(k+1)$ is true. To perform this, suppose the inductive hypothesis
+            $P(k)$ is true for any arbitrarily chosen integer $k \geq a$. 
+            Then show that $P(k+1)$ is true.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Sum of the First $n$ Integers]\label{def:sum-of-n-integers}
+    For every integer $n \geq 1$
+    \begin{equation*}
+        1 + 2 + ... + n = \frac{n(n+1)}{2}
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Closed Form]\label{def:closed-form}
+    If a sum with a variable number of terms is shown to equal an expression
+    that does not contain either an ellipsis or a summation symbol, then the
+    expression is written in closed form.
+\end{definition}
+
 \section{Number Systems}
 
 \subsection{Binary}
