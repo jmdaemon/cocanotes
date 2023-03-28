@@ -41,6 +41,8 @@
 \newcommand\nrel{\not \mathrel{R}}
 \newcommand*\from{\colon}
 
+% Make separate theorem environments
+% Make separate corollary environments
 
 \newcommand\fn[3]{#1 \from #2 \mapsto #3}
 
@@ -247,6 +249,135 @@ In other words, all elements of one tuple must be equal to all the elements of t
     The elements of $A$ are called characters. The null string of $A$
     denoted $\lambda$ is a string with no characters and length of $0$.
     If $A = \{0, 1\}$ then a string over $A$ is a bit string.
+\end{definition}
+
+\section{Properties of Sets}
+
+\subsection{Subset Relations}
+
+\begin{definition}[Subset Relations]\label{def:subset-relations}
+    \begin{enumerate}
+        \item Inclusion of Intersection: For all sets $A$ and $B$,
+            \begin{equation*}
+                \text{(a) } A \cap B \subseteq A \text{ and (b) } A \cap B \subseteq B
+            \end{equation*}
+        \item Inclusion in Union. For all sets $A$ and $B$
+            \begin{equation*}
+                \text{(a) } A \subseteq A \cup B \text{ and (b) } B \subseteq A \cup B
+            \end{equation*}
+        \item Transitive Property of Subsets: For all sets $A$, $B$ and $C$
+            \begin{equation*}
+                \text{if } A \subseteq B \text{ and } B \subseteq C, \text{ then } A \subseteq C
+            \end{equation*}
+    \end{enumerate}
+
+    Note, keep in mind that union, intersection and difference have higher precedence
+    than set inclusion. E.g $A \cap B \subseteq C$ means $(A \cap B) \subseteq C$.
+\end{definition}
+
+\begin{definition}[Procedural Set Definitions]\label{def:procedural-set-defs}
+    Let $X$ and $Y$ be subsets of a universal set $U$ and supposed $x$ and $y$ are elements of $U$.
+    \begin{enumerate}
+        \item $x \in X \cup Y \iff x \in X \text{ or } x \in Y$
+        \item $x \in X \cap Y \iff x \in X \text{ and } x \in Y$
+        \item $x \in X - Y \iff x \in X \text{ and } x \notin Y$
+        \item $x \in X^c \iff x \notin X$
+        \item $(x,y) \in X \times Y \iff x \in X \text{ and } y \in Y$
+    \end{enumerate}
+\end{definition}
+
+\newpage
+
+\subsection{Set Identities}
+
+\begin{definition}[Identity]\label{def:identity}
+    An identity is an equation that is universally true for all elements of a set.
+\end{definition}
+
+Let all sets referred to below be subsets of a universal set $U$.
+
+\begin{table}[!htbp]
+        \caption{Set Identities}
+        \centering
+        \rowcolors{2}{}{gray!10}
+        \begin{adjustwidth}{-1.5cm}{-1.5cm}
+        \centering
+        \adjustbox{width=1.1\textwidth}{
+        \begin{tabular}{ *{4}{l} }
+            \toprule
+            Set Identity & Quantifier & Form & Alternative Form \\
+            \midrule
+            Commutative Law         & For all sets $A$ and $B$
+                                    & $A \cup B = B \cup A$ 
+                                    & $A \cap B = B \cap A$ \\
+            Associative Law         & For all sets $A$, $B$, and $C$
+                                    & $(A \cup B) \cup C = A \cup (B \cup C)$
+                                    & $(A \cap B) \cap C = A \cap (B \cap C)$ \\
+            Distributive Law        & For all sets $A$, $B$, and $C$
+                                    & $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+                                    & $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ \\
+            Identity Law            & For every set $A$
+                                    & $A \cup \O = A$ 
+                                    & $A \cap U = A$ \\
+            Complement Law          & For every set $A$
+                                    & $A \cup A^c = U$
+                                    & $A \cap A^c = \O$ \\
+            Double Complement Law   & For every set $A$
+                                    & $(A^c)^c = A$ 
+                                    & \\
+            Idempotent Law          & For every set $A$
+                                    & $A \cup A = A$
+                                    & $A \cap A = A$ \\
+            Universal Bound Law     & For every set $A$
+                                    & $A \cup U = U$
+                                    & $A \cap \O = \O$ \\
+            DeMorgan's Law          & For all sets $A$, and $B$
+                                    & $(A \cup B)^c = A^c \cap B^c$
+                                    & $(A \cap B)^c = A^c \cup B^c$ \\
+            Absorption Law          & For all sets $A$, and $B$
+                                    & $A \cup (A \cap B) = A$
+                                    & $A \cap (A \cup B) = A$ \\
+            Complements of
+                $U$ and $\O$        &
+                                    & $U^c = \O$
+                                    & $\O^c = U$ \\
+                Set Difference Law  & For all sets $A$, and $B$
+                                    & $A - B = A \cap B^c$
+                                    & \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:tbl-set-identities}
+        }
+        \end{adjustwidth}
+    \end{table}
+
+\begin{definition}[Prove Set Equality]\label{def:prove-set-eq}
+    Let sets $X$ and $Y$ be given. To prove $X = Y$
+    \begin{enumerate}
+        \item Prove that $X \subseteq Y$
+        \item Prove that $Y \subseteq X$
+    \end{enumerate}
+\end{definition}
+
+% Theorem
+\begin{definition}[Intersection and Union with a Subset]\label{def:intersect-union-subset}
+    For any sets $A$ and $B$, if $A \subseteq B$, then
+    \begin{equation*}
+        \text{(a) } A \cap B = A \text{ (and) } A \cup B = B
+    \end{equation*}
+\end{definition}
+
+\subsection{The Empty Set}
+
+% Corollary
+\begin{definition}[The Empty Set is a Subset of Every Set]\label{def:empty-set-thm}
+    A set with no elements known as the "empty set" or "null set" is a subset of every set.
+
+    If $E$ is a set with no elements and $A$ is any set, then $E \subseteq A$.
+\end{definition}
+
+\begin{definition}[Empty Set is Unique]\label{def:empty-set-unique}
+    There is only one set with no elements.
 \end{definition}
 
 \newpage
