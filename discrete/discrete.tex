@@ -42,8 +42,10 @@
 \newcommand\rel{\mathrel{R}}
 \newcommand\nrel{\not \mathrel{R}}
 \newcommand*\from{\colon}
+\newcommand*\powerset{\mathcal{P} (\mathbb{A})}
 
 \newcommand\fn[3]{#1 \from #2 \mapsto #3}
+\newcommand\bl{\ \\}
 
 % Make separate theorem environments
 % Make separate corollary environments
@@ -95,6 +97,10 @@ Statement that is true for at least one element in a set, given a property is a 
 
 \section{Set Theory}
 
+\begin{definition}[Set]\label{def:set}
+    A set is an arbitrary collection of elements.
+\end{definition}
+
 \subsection{Notation}
 
 \subsubsection{Set Roster Notation}
@@ -102,10 +108,6 @@ Statement that is true for at least one element in a set, given a property is a 
 Set-Builder notation (also known as Set Roster Notation) is used to describe sets.
 
 \begin{table}[!htbp]
-    % Symbol        ,     Name      , Meaning           | Usage
-    % {, }          , Curly Braces  , The set of all    | Denotes a set
-    % |             , Pipe/Bar      , Such that         | Indicates conditions on sets
-    % ...           , Ellipses      , And so forth      | Elides numbers from the entire set for brevity
     \centering
     \caption{Set Roster Notation}
 		\rowcolors{2}{}{gray!10}
@@ -186,31 +188,6 @@ Set-Builder notation (also known as Set Roster Notation) is used to describe set
     \caption{Number Sets}
 \end{table}
 
-\begin{definition}[Set]\label{def:set}
-An arbitrary collection of elements.
-\end{definition}
-
-\begin{definition}[Subset]\label{def:subset-txt}
-If A, B are sets, then A is a subset of B if and only if every element of A is an element of B
-\end{definition}
-
-% TODO Find symbols for this shit
-%\begin{definition}[Subset]\label{def:subset}
-    %Let A, B be sets,
-        %A subset B iff for all elem a in A, a is in B
-%\end{definition}
-
-% TODO: Add symbolic variant definitions for sets, distinguish with text variants with -txt
-
-\starON
-**Note:** Contained-in is an alternative way of saying 'is a subset of'.
-\starOFF
-
-\begin{definition}[Proper Subset]\label{def:proper-subset-txt}
-Let A, B be sets, A is a proper subset of B if and only if every element of A is in B, but there
-is at least one element of B not in A.
-\end{definition}
-
 \subsection{Order}
 
 \subsubsection{Tuples}
@@ -248,14 +225,7 @@ is at least one element of B not in A.
 
 In other words, all elements of one tuple must be equal to all the elements of the other tuple.
 
-\subsubsection{Strings}
-\begin{definition}[Strings]\label{def:string}
-    Let $n$ be a positive integer. Given a finite set $A$, a string
-    of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
-    The elements of $A$ are called characters. The null string of $A$
-    denoted $\lambda$ is a string with no characters and length of $0$.
-    If $A = \{0, 1\}$ then a string over $A$ is a bit string.
-\end{definition}
+\subsubsection{Cartesian Product}
 
 \begin{definition}[Cartesian Product]\label{def:cartesian-product}
     Given sets $A_1, A_2, ..., A_n$, the Cartesian product of $A_1, A_2, ..., A_n$
@@ -271,46 +241,106 @@ In other words, all elements of one tuple must be equal to all the elements of t
     \end{equation}
 \end{definition}
 
-% The Subset
-% The Proper Subset
-% Venn Diagrams
-% Disjoint Sets
-% Partition Sets
-% The Empty Set
-% The Power Set
+\subsubsection{Strings}
+\begin{definition}[Strings]\label{def:string}
+    Let $n$ be a positive integer. Given a finite set $A$, a string
+    of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
+    The elements of $A$ are called characters. The null string of $A$
+    denoted $\lambda$ is a string with no characters and length of $0$.
+    If $A = \{0, 1\}$ then a string over $A$ is a bit string.
+\end{definition}
 
-\section{Properties of Sets}
+\subsection{Set Types}
 
-\subsection{Subsets}
+\subsubsection{Subset}
 
 \begin{definition}[Subset]\label{def:subset}
-    For sets $A$, $B$,
-    %\begin{equation*}
-    %\end{equation*}
+    If A, B are sets, then A is a subset of B if and only if every element of A is an element of B.
+
+    Symbolically:
     \begin{align*}
         A \subseteq B &\iff \forall x, \text{ if $x \in A$, then $x \in B$} \\
         \text{ The negation is therefore: } & \\
         A \not \subseteq B &\iff \exists x \text{ such that $x \in A$ and $x \notin B$}
     \end{align*}
+
+    \starON
+    **Note:** Contained-in is another way of saying 'is a subset of'.
+    \starOFF
 \end{definition}
 
+\subsubsection{Proper Subset}
+
 \begin{definition}[Proper Subset]\label{def:proper-subset}
-    $A$ is a proper subset of $B$ $\iff$
+    Let $A$, $B$ be sets, $A$ is a proper subset of $B$ if and only if every element of $A$ is in $B$, but there
+    is at least one element of $B$ not in $A$.
+
+    In other words. $A$ is a proper subset of $B$ $\iff$
     \begin{enumerate}
         \item $A \subseteq B$ and
         \item there is at least one element in $B$ that is not in $A$
     \end{enumerate}
 \end{definition}
 
-\begin{definition}[Element Argument]\label{def:element-argument}
-    For proving that one set is a subset of another, we use the element argument.
+\subsubsection{Empty Set}
 
-    Let sets $X$ and $Y$ be given. To prove $X \subseteq Y$:
+\begin{definition}[Empty Set]\label{def:empty-set}
+    The empty set (or null set) is the set that contains no elements.
+\end{definition}
+
+\begin{theorem}[The Empty Set is a Subset of Every Set]\label{thm:empty-set}\bl
+    If $E$ is a set with no elements and $A$ is any set, then $E \subseteq A$.
+\end{theorem}
+
+\begin{corollary}[Empty Set is Unique]\label{cor:empty-set-unique}\bl
+    There is only one set with no elements.
+\end{corollary}
+
+% Disjoint Sets
+\subsubsection{Partitions of Sets}
+
+\subsubsection{Disjoint Sets}
+\begin{definition}[Disjoint]\label{def:disjoint}
+    Two sets are disjoint if, and only if they have no elements in common.
+    \begin{equation*}
+        \text{$A$ and $B$ are disjoint } \iff A \cap B = \O
+    \end{equation*}
+\end{definition}
+
+
+\subsubsection{Mutually Disjoint Sets}
+\begin{definition}[Mutually Disjoint]\label{def:mutually-disjoint}
+    Sets $A_1$, $A_2$, $A_3$, ..., are mutually disjoint (nonoverlapping)
+    if, and only if, no two sets $A_i$, $A_j$ with distinct subscripts
+    in common.
+    \begin{equation*}
+        A_i \cap A_j = \O
+    \end{equation*}
+    Where $i$, $j$ are two integers such that $i \neq j$.
+\end{definition}
+
+\begin{definition}[Partition]\label{def:partition}
+    A finite or infinite collection of non-empty sets $\{ A_1, A_2, A_3, ... \}$
+    is the partition of a set $A$, if, and only if,
     \begin{enumerate}
-        \item Suppose that $x$ is a particular but arbitrarily chosen element of $X$
-        \item Show that $x$ is an element of $Y$
+        \item $A$ is the union of all $A_i$ and
+        \item the sets $\{ A_1, A_2, A_3, ... \}$ are mutually disjoint.
     \end{enumerate}
 \end{definition}
+
+\subsubsection{Power Set}
+
+\begin{definition}[Power Set]\label{def:power-set}
+    Given a set $A$, the power set of $A$, denoted $\powerset$ is the set of all subsets of $A$.
+\end{definition}
+
+%\begin{definitionln}[asdf]\label{def:asdf}
+    %asdf
+%\end{definitionln}
+
+% Venn Diagrams
+
+\section{Properties of Sets}
 
 \subsection{Subset Relations}
 
@@ -424,18 +454,6 @@ Let all sets referred to below be subsets of a universal set $U$.
     \end{equation*}
 \end{definition}
 
-\subsection{The Empty Set}
-
-% Corollary
-\begin{definition}[The Empty Set is a Subset of Every Set]\label{def:empty-set-thm}
-    A set with no elements known as the "empty set" or "null set" is a subset of every set.
-
-    If $E$ is a set with no elements and $A$ is any set, then $E \subseteq A$.
-\end{definition}
-
-\begin{definition}[Empty Set is Unique]\label{def:empty-set-unique}
-    There is only one set with no elements.
-\end{definition}
 
 \newpage
 \section{Predicate Logic}
