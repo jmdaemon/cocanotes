@@ -37,14 +37,17 @@
 \newcommand*{\carry}[1][1]{\overset{#1}}
 \newcolumntype{B}[1]{r*{#1}{@{\,}r}}
 
+\newcommand\W{\ensuremath{\mathbb{W}}}
+
 \newcommand\rel{\mathrel{R}}
 \newcommand\nrel{\not \mathrel{R}}
 \newcommand*\from{\colon}
 
+\newcommand\fn[3]{#1 \from #2 \mapsto #3}
+
 % Make separate theorem environments
 % Make separate corollary environments
 
-\newcommand\fn[3]{#1 \from #2 \mapsto #3}
 
 % Automatically put sections on new pages if there is not enough space
 \AddToHook{cmd/section/before}{\clearpage}
@@ -163,37 +166,25 @@ Set-Builder notation (also known as Set Roster Notation) is used to describe set
 \end{definition}
 
 \newpage
-\subsection{Common Number Sets}
-% TODO: Add sets for the groups of numbers
-% TODO: Develop set notation functions to make writing easier
-% TODO: Fix table headers not being centered
+\subsection{Number Sets}
 
-% TODO: Wrap the text on this
 \begin{table}[!htbp]
-    % Symbol        ,   Name        , Domain
-    % Z             , Integers      , 
-    % Q             , Rationals     , 
-    % R             , Reals         , 
     \centering
 		\rowcolors{2}{}{gray!10}
-    \begin{tabular}{ c l l }
+    \begin{tabular}{ c c l l }
         \toprule
-        Symbol  & Name      & Set \\
+        Symbol  & Alternative Symbol    & Name      & Domain \\
         \midrule
-        \Z      & Integers  & $\{-3,-2,-1,0,1,2,3, ... \}$ \\
-        \Q      & Rationals & $\{ -1/2, 0.333, ... \}$ \\
-        \R      & Reals     & $\{ \sqrt{5} \}$ \\
+        \Z      &                       & Integers  & $\{ ..., -3,-2,-1,0,1,2,3, ... \}$ \\
+        \N      & $\Z^+$                & Naturals  & $\{ 1,2,3, ... \}$ \\
+        \W      & $\Z^{\text{nonneg}}$  & Whole     & $\{ 0,1,2,3, ... \}$ \\
+        \Q      &                       & Rationals & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, ... \}$ \\
+        \R      &                       & Reals     & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, \sqrt{5}, ... \}$ \\
         \bottomrule
     \end{tabular}
     \label{tab:tbl-number-sets}
-    \caption{Common Number Sets}
+    \caption{Number Sets}
 \end{table}
-
-\starON
-**Note:** The $^+$ superscript denotes positive number elements in these sets. 
-
-**Note:** The $^{nonneg}$ superscript denotes non-negative numbers (0, 1, 2, 3, ...). 
-\starOFF
 
 \begin{definition}[Set]\label{def:set}
 An arbitrary collection of elements.
@@ -1210,10 +1201,12 @@ as every occurrence of the variable is also replaced.
 
 \begin{definition}[Choose Notation]\label{def:choose}
     For integers $n$ and $r$ such that $0 \leq r \leq n$.
+
     \begin{equation*}
         {n \choose r}
     \end{equation*}
-    read "$n$ choose $r$" represents the number of subsets of size $r$ that
+
+    Read "$n$ choose $r$" represents the number of subsets of size $r$ that
     can be chosen from a set of $n$ elements.
 \end{definition}
 
