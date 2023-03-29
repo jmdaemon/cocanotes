@@ -1117,28 +1117,7 @@ Carrying still works in both binary addition and subtraction.
     
 \end{definition}
 
-For a sequence
-\begin{equation*}
-    a_m, a_{m+1}, a_{m+2}, ... , a_n
-\end{equation*}
-
-\begin{table}[!htbp]
-    \centering
-    \rowcolors{2}{}{gray!10}
-    \begin{tabular}{ *{2}{c} }
-        \toprule
-        Terminology & Definition \\
-        \midrule
-        Term                & An individual element in the sequence \\
-        Subscript / Index   & Integer index of the initial term \\
-        Infinite Sequence   & A sequence of the form $a_m, a_{m+1}, a_{m+2}, ...$ \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:tbl-sequence-notation}
-    \caption{Common notation for sequences}
-\end{table}
-
-\subsection{Sum Notation}
+\subsection{Sum}
 
 \begin{definition}[Sum]\label{def:sum}
     If $m$ and $n$ are integers and $m \leq n$, the summation
@@ -1149,15 +1128,18 @@ For a sequence
     \end{equation*}
     Where
     \begin{itemize}
-        \item $k$ is the index of the sum
+        \item $k$ is the index of the sum. Also known as the sum's subscript.
         \item $m$ is the lower limit of the sum
         \item $n$ is the upper limit of the sum
+        \item $a_m, a_{m+1} a_{m+2}$ and $a_n$ are the sum's terms.
         \item $a_m, a_{m+1} a_{m+2}, ..., a_n$ is the expanded form of the sum.
     \end{itemize}
+
+    Note that an open ended sequence such as $a_m, a_{m+1}, a_{m+2}, ...$,
+    the sequence is known as an infinite sequence.
 \end{definition}
 
-
-\subsection{Product Notation}
+\subsection{Product}
 
 \begin{definition}[Product]\label{def:product}
     If $m$ and $n$ are integers and $m \leq n$,
@@ -1171,41 +1153,26 @@ For a sequence
     The Greek letter used is (Pi $\Pi$).
 \end{definition}
 
-\subsubsection{Recursive Product}
-
-\begin{definition}[Recursive Product]\label{def:recursive-product}
+\begin{definition}[Product (Recursive Definition)]\label{def:recursive-product}
     If $m$ is any integer
     \begin{equation*}
         \prod_{k=m}^m = a_m \text{ and } \prod_{k=m}^n a_k = \Biggl( \prod_{k=m}^{n-1} \Biggl) \cdot a_n \text { for every integer $n > m$ }
     \end{equation*}
 \end{definition}
 
-\subsection{Properties of Summations \& Products}
+\subsection{Sum \& Product Properties}
 
-\begin{definition}[Summations \& Products Properties]\label{def:props-sums-prods}
+\begin{definition}[Sum \& Product Properties]\label{def:props-sums-prods}
     If $a_m, a_{m+1}, a_{m+2}, ...$ and $b_m, b_{m+1}, b_{m+2}, ...$
     are sequences of real numbers and $c$ is any real number then
     the following operations hold for any integer $n \geq m$.
 
     \begin{align*}
         \text{1.} & \sum_{k=m}^n a_k + \sum_{k=m}^n b_k = \sum_{k=m}^n (a_k + b_k) \\
-        \text{2.} & c \cdot \sum_{k=m}^n a_k = \sum_{k=m}^n c \cdot a_k \\
+        \text{2.} & \text{ } c \cdot \sum_{k=m}^n a_k = \sum_{k=m}^n c \cdot a_k \\
         \text{3.} & \Biggl( \prod_{k=m}^n a_k \Biggl) \cdot \Biggl( \prod_{k=m}^n b_k \Biggl) =
                     \prod_{k=m}^n (a_k \cdot b_k) \\
     \end{align*}
-
-    %\begin{enumerate}
-        %\item \[
-                %\sum_{k=m}^n a_k + \sum_{k=m}^n b_k = \sum_{k=m}^n (a_k + b_k)
-            %\]
-        %\item \[
-                %c \cdot \sum_{k=m}^n a_k = \sum_{k=m}^n c \cdot a_k
-            %\]
-        %\item \[
-                %\Biggl( \prod_{k=m}^n a_k \Biggl) \cdot \Biggl( \prod_{k=m}^n b_k \Biggl) =
-                %\Biggl( \prod_{k=m}^n (a_k \cdot b_k) \Biggl)
-            %\]
-    %\end{enumerate}
 \end{definition}
 
 \subsection{Change of Variable}
@@ -1213,8 +1180,9 @@ For a sequence
 The variable used for the index in sums or products can be replaced so long
 as every occurrence of the variable is also replaced.
 
-\subsection{Combinatorics}
+\subsection{Common Sequences}
 
+\subsubsection{Factorial}
 \begin{definition}[Factorial]\label{def:factorial}
     For every positive integer $n$, $n$ factorial denoted $n!$,
     is the product of all the integers from 1 to $n$.
@@ -1237,6 +1205,8 @@ as every occurrence of the variable is also replaced.
         \end{cases}
     \end{equation*}
 \end{definition}
+
+\subsection{Combinatorics}
 
 \begin{definition}[Choose Notation]\label{def:choose}
     For integers $n$ and $r$ such that $0 \leq r \leq n$.
