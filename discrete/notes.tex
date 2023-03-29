@@ -142,6 +142,26 @@ Set-Builder notation (also known as Set Roster Notation) is used to describe set
     \label{tab:tbl-set-theory-notation}
 \end{table}
 
+\subsubsection{Interval Notation}
+\begin{definition}[Interval Notation]\label{def:interval-notation}
+    Given real numbers $a$ and $b$ with $a \leq b$
+    \begin{align*}
+        (a, b) = \{ x \in \R \mid a < x < b \} \\
+        (a, b] = \{ x \in \R \mid a < x \leq b \} \\
+        [a, b) = \{ x \in \R \mid a \leq x < b \} \\
+        [a, b] = \{ x \in \R \mid a \leq x \leq b \}
+    \end{align*}
+
+    For unbounded intervals at infinity:
+
+    \begin{align*}
+        (a, \infty) = \{ x \in \R \mid x > a \} \\
+        [a, \infty) = \{ x \in \R \mid x \geq a \} \\
+        (-\infty, b) = \{ x \in \R \mid x < a \} \\
+        (-\infty, b] = \{ x \in \R \mid x \leq a \}
+    \end{align*}
+\end{definition}
+
 \newpage
 \subsection{Common Number Sets}
 % TODO: Add sets for the groups of numbers
@@ -237,7 +257,7 @@ is at least one element of B not in A.
 
 In other words, all elements of one tuple must be equal to all the elements of the other tuple.
 
-\subsection{Strings}
+\subsubsection{Strings}
 \begin{definition}[Strings]\label{def:string}
     Let $n$ be a positive integer. Given a finite set $A$, a string
     of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
@@ -260,6 +280,13 @@ In other words, all elements of one tuple must be equal to all the elements of t
     \end{equation}
 \end{definition}
 
+% The Subset
+% The Proper Subset
+% Venn Diagrams
+% Disjoint Sets
+% Partition Sets
+% The Empty Set
+% The Power Set
 
 \section{Properties of Sets}
 
@@ -981,6 +1008,20 @@ Carrying still works in both binary addition and subtraction.
 
 
 \section{Relations}
+
+% Relations
+% Arrow Diagrams
+
+% Functions
+%   Function Machines
+%   One-To-One Functions
+%   Onto Functions
+%   One-To-One Correspondence
+
+%   Inverse Functions
+%   Exponential Functions
+%   Logarithmic Functions
+%   Function Composition
 
 \begin{definition}[Relation]\label{def:relation}
     A relation from $A$ to $B$, of two sets $A$, $B$, is a subset of $A \times B$.
