@@ -46,6 +46,9 @@
 
 \newcommand\fn[3]{#1 \from #2 \mapsto #3}
 
+% Automatically put sections on new pages if there is not enough space
+\AddToHook{cmd/section/before}{\clearpage}
+
 \begin{document}
 
 \include{cover}
@@ -89,13 +92,12 @@ Statement that is true for at least one element in a set, given a property is a 
 
 \section{Set Theory}
 
+\subsection{Notation}
+
+\subsubsection{Set Roster Notation}
+
 Set-Builder notation (also known as Set Roster Notation) is used to describe sets.
 
-\begin{definition}[Set]\label{def:set}
-An arbitrary collection of elements.
-\end{definition}
-
-\subsection{Set Roster Notation}
 \begin{table}[!htbp]
     % Symbol        ,     Name      , Meaning           | Usage
     % {, }          , Curly Braces  , The set of all    | Denotes a set
@@ -116,6 +118,31 @@ An arbitrary collection of elements.
     \label{tab:tbl-set-notation}
 \end{table}
 
+\subsubsection{Set Theory Notation}
+
+\begin{table}[!htbp]
+    \centering
+    \caption{Set Theory Notation}
+    \rowcolors{2}{}{gray!10}
+    \begin{tabular}{ c l l l }
+        \toprule
+        Symbol      & LaTeX             & Name              & Meaning \\
+        \midrule
+        $\in$       & \verb|\in|        & In                & Is an element of ... \\
+        $\notin$    & \verb|\notin|     & Not in            & Is not an element of ... \\
+        $\subset$   & \verb|\subset|    & Proper Subset     & Is a proper subset of ... \\
+        $\subseteq$ & \verb|\subseteq|  & Subset            & Is a subset of ... \\
+        $\subset$   & \verb|\subset|    & Proper Superset   & Is a proper superset of ... \\
+        $\subseteq$ & \verb|\subseteq|  & Superset          & Is a superset of ... \\
+        $\cup$      & \verb|\cup|       & Set Union         & The set of elements in either set A or B \\
+        $\cap$      & \verb|\cap|       & Set Intersection  & The set of elements in both set A and B \\
+        $\setminus$ & \verb|\setminus|  & Set Difference    & The set of elements of A that are not in B \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl-set-theory-notation}
+\end{table}
+
+\newpage
 \subsection{Common Number Sets}
 % TODO: Add sets for the groups of numbers
 % TODO: Develop set notation functions to make writing easier
@@ -148,30 +175,9 @@ An arbitrary collection of elements.
 **Note:** The $^{nonneg}$ superscript denotes non-negative numbers (0, 1, 2, 3, ...). 
 \starOFF
 
-\subsection{Set Theory Notation}
-\begin{table}[!htbp]
-    \centering
-    \caption{Set Theory Notation}
-    \rowcolors{2}{}{gray!10}
-    \begin{tabular}{ c l l l }
-        \toprule
-        Symbol      & LaTeX             & Name              & Meaning \\
-        \midrule
-        $\in$       & \verb|\in|        & In                & Is an element of ... \\
-        $\notin$    & \verb|\notin|     & Not in            & Is not an element of ... \\
-        $\subset$   & \verb|\subset|    & Proper Subset     & Is a proper subset of ... \\
-        $\subseteq$ & \verb|\subseteq|  & Subset            & Is a subset of ... \\
-        $\subset$   & \verb|\subset|    & Proper Superset   & Is a proper superset of ... \\
-        $\subseteq$ & \verb|\subseteq|  & Superset          & Is a superset of ... \\
-        $\cup$      & \verb|\cup|       & Set Union         & The set of elements in either set A or B \\
-        $\cap$      & \verb|\cap|       & Set Intersection  & The set of elements in both set A and B \\
-        $\setminus$ & \verb|\setminus|  & Set Difference    & The set of elements of A that are not in B \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:tbl-set-theory-notation}
-\end{table}
-
-\newpage
+\begin{definition}[Set]\label{def:set}
+An arbitrary collection of elements.
+\end{definition}
 
 \begin{definition}[Subset]\label{def:subset-txt}
 If A, B are sets, then A is a subset of B if and only if every element of A is an element of B
@@ -194,7 +200,9 @@ Let A, B be sets, A is a proper subset of B if and only if every element of A is
 is at least one element of B not in A.
 \end{definition}
 
-\subsection{Tuples}
+\subsection{Order}
+
+\subsubsection{Tuples}
 
 \begin{definition}[Ordered Pair]\label{def:ordered-pair}
     A pair of elements $(a, b)$ where a is the first
@@ -223,11 +231,20 @@ is at least one element of B not in A.
     are equal if and only if:
 
     \begin{equation}
-        (x_1, x_2, ..., x_n) = (y_1, y_2, ..., y_n) \iff x_1 = y_1, ... x_n = y_n
+        (x_1, x_2, ..., x_n) = (y_1, y_2, ..., y_n) \iff x_1 = y_1, ..., x_n = y_n
     \end{equation}
 \end{definition}
 
 In other words, all elements of one tuple must be equal to all the elements of the other tuple.
+
+\subsection{Strings}
+\begin{definition}[Strings]\label{def:string}
+    Let $n$ be a positive integer. Given a finite set $A$, a string
+    of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
+    The elements of $A$ are called characters. The null string of $A$
+    denoted $\lambda$ is a string with no characters and length of $0$.
+    If $A = \{0, 1\}$ then a string over $A$ is a bit string.
+\end{definition}
 
 \begin{definition}[Cartesian Product]\label{def:cartesian-product}
     Given sets $A_1, A_2, ..., A_n$, the Cartesian product of $A_1, A_2, ..., A_n$
@@ -243,13 +260,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
     \end{equation}
 \end{definition}
 
-\begin{definition}[Strings]\label{def:string}
-    Let $n$ be a positive integer. Given a finite set $A$, a string
-    of length $\frac{n}{A}$ is an ordered $n$-tuple of elements of $A$.
-    The elements of $A$ are called characters. The null string of $A$
-    denoted $\lambda$ is a string with no characters and length of $0$.
-    If $A = \{0, 1\}$ then a string over $A$ is a bit string.
-\end{definition}
 
 \section{Properties of Sets}
 
@@ -257,8 +267,8 @@ In other words, all elements of one tuple must be equal to all the elements of t
 
 \begin{definition}[Subset]\label{def:subset}
     For sets $A$, $B$,
-    \begin{equation*}
-    \end{equation*}
+    %\begin{equation*}
+    %\end{equation*}
     \begin{align*}
         A \subseteq B &\iff \forall x, \text{ if $x \in A$, then $x \in B$} \\
         \text{ The negation is therefore: } & \\
@@ -287,6 +297,8 @@ In other words, all elements of one tuple must be equal to all the elements of t
 \subsection{Subset Relations}
 
 \begin{definition}[Subset Relations]\label{def:subset-relations}
+    Note, keep in mind that union, intersection and difference have higher precedence
+    than set inclusion. E.g $A \cap B \subseteq C$ means $(A \cap B) \subseteq C$.
 
     \begin{enumerate}
         \item Inclusion of Intersection: For all sets $A$ and $B$,
@@ -302,9 +314,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
                 \text{if } A \subseteq B \text{ and } B \subseteq C, \text{ then } A \subseteq C
             \end{equation*}
     \end{enumerate}
-
-    Note, keep in mind that union, intersection and difference have higher precedence
-    than set inclusion. E.g $A \cap B \subseteq C$ means $(A \cap B) \subseteq C$.
 \end{definition}
 
 \begin{definition}[Procedural Set Definitions]\label{def:procedural-set-defs}
@@ -317,8 +326,6 @@ In other words, all elements of one tuple must be equal to all the elements of t
         \item $(x,y) \in X \times Y \iff x \in X \text{ and } y \in Y$
     \end{enumerate}
 \end{definition}
-
-\newpage
 
 \subsection{Set Identities}
 
