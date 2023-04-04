@@ -5,9 +5,12 @@
 \usepackage[
     noparindent,
     usearialheadings,
-    usenewpagebeforesection
+    usenewpagebeforesection,
     ]{coco}
-\usepackage[numbersets,logic]{shortmath}
+\usepackage[
+    numbersets,
+    logic,
+    ]{shortmath}
 \usepackage{code}
 \usepackage{discrete}
 \usepackage{thmstyles}
@@ -30,31 +33,13 @@
 \setlength{\lineskiplimit}{0pt}
 \setlength{\baselineskip}{0pt}
 
-%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
-%\newcommand*{\carry}[1][1]{\overset{#1}}
-%\newcolumntype{B}[1]{r*{#1}{@{\,}r}}
-
-\newcommand\W{\ensuremath{\mathbb{W}}}
-
-\newcommand\rel{\mathrel{R}}
-\newcommand\nrel{\not \mathrel{R}}
-\newcommand*\from{\colon}
-%\newcommand*\powerset{\mathcal{P} (\mathbb{A})}
 \newcommand*\qistmt[4]{#1 $x \in #2$, if #3 then #4}
 \newcommand*\qstmt[3]{#1 $x \in #2$ such that #3}
-
-\newcommand\fn[3]{#1 \from #2 \mapsto #3}
-%\newcommand\bl{\ \\}
 
 %\newenvironment\stmt{}
 %\newcommand\h1[1] {
 %\section*{#1}
 %}
-%\newcommand{\h}[1]{H^{(1)}_{#1}}
-
-% Make separate theorem environments
-% Make separate corollary environments
 
 \begin{document}
 
@@ -67,8 +52,6 @@
 
 % Quick Introduction
 \section{Introduction}
-
-%\starON % Enable markdown style bolding
 
 This document contains various definitions, laws, notation for Discrete Mathematics.
 
