@@ -33,19 +33,26 @@
 
 %\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-% Used to insert a space in long vertical additions/subtractions
-\newcommand*{\carry}[1][1]{\overset{#1}}
-\newcolumntype{B}[1]{r*{#1}{@{\,}r}}
+%\newcommand*{\carry}[1][1]{\overset{#1}}
+%\newcolumntype{B}[1]{r*{#1}{@{\,}r}}
 
 \newcommand\W{\ensuremath{\mathbb{W}}}
 
 \newcommand\rel{\mathrel{R}}
 \newcommand\nrel{\not \mathrel{R}}
 \newcommand*\from{\colon}
-\newcommand*\powerset{\mathcal{P} (\mathbb{A})}
+%\newcommand*\powerset{\mathcal{P} (\mathbb{A})}
+\newcommand*\qistmt[4]{#1 $x \in #2$, if #3 then #4}
+\newcommand*\qstmt[3]{#1 $x \in #2$ such that #3}
 
 \newcommand\fn[3]{#1 \from #2 \mapsto #3}
-\newcommand\bl{\ \\}
+%\newcommand\bl{\ \\}
+
+%\newenvironment\stmt{}
+%\newcommand\h1[1] {
+%\section*{#1}
+%}
+%\newcommand{\h}[1]{H^{(1)}_{#1}}
 
 % Make separate theorem environments
 % Make separate corollary environments
@@ -168,25 +175,6 @@ Set-Builder notation (also known as Set Roster Notation) is used to describe set
 \end{definition}
 
 \newpage
-\subsection{Number Sets}
-
-\begin{table}[!htbp]
-    \centering
-		\rowcolors{2}{}{gray!10}
-    \begin{tabular}{ c c l l }
-        \toprule
-        Symbol  & Alternative Symbol    & Name      & Domain \\
-        \midrule
-        \Z      &                       & Integers  & $\{ ..., -3,-2,-1,0,1,2,3, ... \}$ \\
-        \N      & $\Z^+$                & Naturals  & $\{ 1,2,3, ... \}$ \\
-        \W      & $\Z^{\text{nonneg}}$  & Whole     & $\{ 0,1,2,3, ... \}$ \\
-        \Q      &                       & Rationals & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, ... \}$ \\
-        \R      &                       & Reals     & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, \sqrt{5}, ... \}$ \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:tbl-number-sets}
-    \caption{Number Sets}
-\end{table}
 
 \subsection{Order}
 
@@ -922,22 +910,99 @@ Variable scope refers to the lifetime of a given variable.
     \end{center}
 \end{bbox}
 
-\section{Proofs}
+\section{Elementary Number Theory}
+
+\subsection{Number Sets}
+
+\begin{table}[!htbp]
+    \centering
+		\rowcolors{2}{}{gray!10}
+    \begin{tabular}{ c c l l }
+        \toprule
+        Symbol  & Alternative Symbol    & Name      & Domain \\
+        \midrule
+        \Z      &                       & Integers  & $\{ ..., -3,-2,-1,0,1,2,3, ... \}$ \\
+        \N      & $\Z^+$                & Naturals  & $\{ 1,2,3, ... \}$ \\
+        \W      & $\Z^{\text{nonneg}}$  & Whole     & $\{ 0,1,2,3, ... \}$ \\
+        \Q      &                       & Rationals & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, ... \}$ \\
+        \R      &                       & Reals     & $\{ ..., -\frac{1}{2}, -1, 0, \frac{1}{3}, 1, \sqrt{5}, ... \}$ \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl-number-sets}
+    \caption{Number Sets}
+\end{table}
+
+\subsection{Integers}
+
+\begin{definition}[Even]\label{def:even}
+    An integer $n$ is even if, and only if $n$ equals twice some integer.
+    \begin{equation*}
+        n \text{ is even } \iff n = 2k \text{ for some integer } k
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Odd]\label{def:odd}
+    An integer $n$ is odd if, and only if $n$ equals twice some integer plus 1.
+    \begin{equation*}
+        n \text{ is odd } \iff n = 2k + 1 \text{ for some integer } k
+    \end{equation*}
+\end{definition}
 
 \begin{definition}[Prime]\label{def:prime}
-    An integer $n$ is prime if and only if $n > 1$ for all positive integers $r$, and $s$.
+    An integer $n$ is prime if, and only if $n > 1$ for all positive integers $r$, and $s$.
     If $n = rs$ then $r$ or $s$ equals $n$.
     \begin{equation*}
-    \forall r,s \in Z^+, (n = rs) \to ((r = 1) \land s = n) \lor ((r = n) \land (s = 1))
+    \forall r,s \in Z^+, (n = rs) \to ((r = 1) \land (s = n)) \lor ((r = n) \land (s = 1))
     \end{equation*}
 \end{definition}
 
 \begin{definition}[Composite]\label{def:composite}
-    An integer $n$ is composite if and only if $n > 1$ for all positive integers $r$, and $s$.
+    An integer $n$ is composite if, and only if $n > 1$ for all positive integers $r$, and $s$.
     If $n = rs$ then $r$ or $s$ equals $n$ with $1 < r < n$ and $1 < s < n$.
     \begin{equation*}
-        \exists r,s \in Z^+ \text{ such that } n = rs \land 1 < r < n \land 1 < s < n
+        \exists r,s \in Z^+ \text{ such that } (n = rs) \land (1 < r < n) \land (1 < s < n)
     \end{equation*}
+\end{definition}
+
+
+\section{Proofs}
+
+\subsection{Proof by Construction}
+\begin{definition}[Proof by Construction]\label{def:proof-by-construction}
+    A statement of the form "\qstmt{$\exists x$ }{D}{$Q(x)$}" is true
+    if, and only if,
+\end{definition}
+
+\subsection{Proof by Counterexample}
+\begin{definition}[Proof by Counterexample]\label{def:proof-by-counterexample}
+    To disprove a statement of the form "$\forall x \in D$ if $P(x)$ then $Q(x)$",
+    find a value of $x$ (the counterexample) in $D$ for which the hypothesis $P(x)$
+    is true, and the conclusion $Q(x)$ is false.
+\end{definition}
+
+% Reductio Ad Absurdum
+\subsection{Proof by Exhaustion}
+\begin{definition}[Proof by Exhaustion]\label{def:proof-by-exhaustion}
+    To prove a statement by exhaustion, simply list out all the possible
+    cases for the given statement. Then evaluate each case for its truth value. 
+\end{definition}
+
+\subsection{Direct Proof}
+\begin{definition}[Direct Proof]\label{def:direct-proof}\
+
+    \begin{enumerate}
+        \item Express the statement to be proved in the form "\qistmt{For every}{D}{$P(x)$}{$Q(x)$}"
+        \item Suppose $x$ is a particular but arbitrarily chosen element of $D$,
+            for which the hypothesis $P(x)$ is true.
+        \item Show that the conclusion $Q(x)$ is true by using definitions,
+            previously established results, and the rules for logical inference.
+    \end{enumerate}
+
+    Note:
+    \begin{itemize}
+        \item The first step is often done mentally.
+        \item The suppose step is often abbreviated: "Suppose $x \in D$ and $P(x)$"
+    \end{itemize}
 \end{definition}
 
 \subsection{Mathematical Induction}
