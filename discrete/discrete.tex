@@ -2,7 +2,11 @@
 
 % Imports
 \usepackage[table]{xcolor}
-\usepackage[noparindent]{coco}
+\usepackage[
+    noparindent,
+    usearialheadings,
+    usenewpagebeforesection
+    ]{coco}
 \usepackage[numbersets,logic]{shortmath}
 \usepackage{code}
 \usepackage{discrete}
@@ -51,10 +55,6 @@
 
 % Make separate theorem environments
 % Make separate corollary environments
-
-
-% Automatically put sections on new pages if there is not enough space
-\AddToHook{cmd/section/before}{\clearpage}
 
 \begin{document}
 
