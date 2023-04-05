@@ -40,6 +40,7 @@
 %\newcommand\h1[1] {
 %\section*{#1}
 %}
+\newcommand\inv{\ensuremath{^{-1}}}
 
 \begin{document}
 
@@ -942,6 +943,41 @@ Variable scope refers to the lifetime of a given variable.
     \end{equation*}
 \end{definition}
 
+\subsection{Number Systems}
+
+\subsubsection{Binary}
+
+Use the following table to write decimal numbers as the sum of powers of 2.
+
+\begin{table}[!htbp]
+    \centering
+    \rowcolors{2}{}{cyan!10}
+    \begin{tabular}{ *{12}{c} }
+        %\toprule
+        \arrayrulecolor{cyan}\toprule
+        \textcolor{cyan}{\textbf{Power of 2}}      & $2^{10}$ & $2^9$ & $2^8$ & $2^7$  & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\
+        \midrule
+        \textcolor{cyan}{\textbf{Decimal Form}}    & 1024     & 512   & 256   & 128    & 64    & 32    & 16    &   8   & 4     & 2     & 1 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:tbl-base-2-powers}
+    \caption{Table of various powers of 2 for Binary and Decimal Conversions}
+\end{table}
+
+\subsubsection{Binary Addition \& Subtraction}
+
+Carrying still works in both binary addition and subtraction.
+
+\begin{equation*}
+    \begin{array}{B3}
+        1_2 & \\
+        {} + 1_2 & \\\hline
+        10_2 \\
+        
+    \end{array}
+\end{equation*}
+
+\subsubsection{Hexadecimal}
 
 \section{Proofs}
 
@@ -1024,41 +1060,6 @@ To prove by mathematical induction, you need to follow these steps.
     expression is written in closed form.
 \end{definition}
 
-\section{Number Systems}
-
-\subsection{Binary}
-
-Use the following table to write decimal numbers as the sum of powers of 2.
-
-\begin{table}[!htbp]
-    \centering
-    \rowcolors{2}{}{cyan!10}
-    \begin{tabular}{ *{12}{c} }
-        %\toprule
-        \arrayrulecolor{cyan}\toprule
-        \textcolor{cyan}{\textbf{Power of 2}}      & $2^{10}$ & $2^9$ & $2^8$ & $2^7$  & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$ \\
-        \midrule
-        \textcolor{cyan}{\textbf{Decimal Form}}    & 1024     & 512   & 256   & 128    & 64    & 32    & 16    &   8   & 4     & 2     & 1 \\
-        \bottomrule
-    \end{tabular}
-    \label{tab:tbl-base-2-powers}
-    \caption{Table of various powers of 2 for Binary and Decimal Conversions}
-\end{table}
-
-\subsection{Binary Addition \& Subtraction}
-
-Carrying still works in both binary addition and subtraction.
-
-\begin{equation*}
-    \begin{array}{B3}
-        1_2 & \\
-        {} + 1_2 & \\\hline
-        10_2 \\
-        
-    \end{array}
-\end{equation*}
-
-
 \section{Relations}
 
 % Relations
@@ -1121,7 +1122,7 @@ Carrying still works in both binary addition and subtraction.
     the unique element in $B$ related by $x$, read as "$F$ of $x$".
 \end{definition}
 
-\subsection{Function Machines}
+\subsubsection{Function Machines}
 
 \begin{definition}[Squaring Function]\label{def:sqr-fn}
     \begin{equation*}
@@ -1154,6 +1155,100 @@ Carrying still works in both binary addition and subtraction.
     \begin{equation*}
         f = g \text{ if and only if } f(x) = g(x) \text{ for all $x$ in $A$ }
     \end{equation*}
+\end{definition}
+
+\subsubsection{One-To-One Functions}
+\begin{definition}[One-To-One]\label{def:one-to-one}
+    Let $F$ be a function from set $X$ to set $Y$. $F$ is one-to-one (injective) if
+    and only if, for all elements $x_1$, $x_2$ in $X$:
+    \begin{enumerate}
+        \item if $F(x_1) = F(x_2)$, then $x_1 = x_2$
+        \item if $x_1 \neq x_2$, then $F(x_1) \neq F(x_2)$
+    \end{enumerate}
+
+    Formally:
+    \begin{equation*}
+        \fn{F}{X}{Y} \text{ is one-to-one} \iff \forall x_1,x_2 \in F(x_1) = F(x_2), \text{ then } x_1 = x_2
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Determining One-To-One Functions]\label{def:det-one-to-one}
+    A function is not one-to-one if:
+    \begin{equation*}
+        \fn{F}{X}{Y} \text{ is not one-to-one} \iff \exists x_1,x_2 \in X \text{ such that } F(x_1) = F(x_2) \text{ and } x_1 \neq x_2
+    \end{equation*}
+
+    In other words, if elements $x_1$, and $x_2$ can be found that have
+    the same function value but are not equal, then $F$ is not one-to-one.
+\end{definition}
+
+To prove a function is one-to-one on an infinite set, we will generally use the method of direct proof.
+
+\begin{definition}[Proving One-To-One Functions on Infinite Sets]\label{def:prove-one-to-one}
+    \textbf{Suppose:} $x_1$, $x_2$ are both elements of $X$ such that $F(x_1) = F(x_2)$
+
+    \textbf{Show:} $x_1 = x_2$
+
+    To show that the function is not one-to-one we will instead show:
+
+    \text{Show:} Find elements $x_1$ and $x_2$ in $X$ such that $F(x_1) = F(x_2)$ but $x_1 \neq x_2$
+\end{definition}
+
+\subsubsection{Onto Functions}
+\begin{definition}[Onto]\label{def:onto}
+    Let $F$ be a function from $X$ to $Y$. F is onto (surjective) if, and only if,
+    given any element $y$ in $Y$, it is possible to find an element $x$ in $X$ with
+    the property that $y = F(x)$
+    \begin{equation*}
+        F\colon X \to Y \text{ is onto } \iff \forall y \in Y, \exists x \in X \text{ such that } F(x) = y
+    \end{equation*}
+
+    In other words
+    \begin{equation*}
+        F\colon X \to Y \text{ is not onto } \iff \exists y \in Y \text{ such that } \forall x \in X F(x) \neq y
+    \end{equation*}
+\end{definition}
+
+To prove a function is one-to-one on an infinite set, we will generally use the method of generalizing from the generic particular.
+
+\begin{definition}[Proving Onto Functions on Infinite Sets]\label{def:prove-onto}
+    \textbf{Suppose:} $y$ is any element of $Y$
+
+    \textbf{Show:} $\exists x \in X$ such that $F(x) = y$
+
+    To show that the function is not onto we will instead show:
+
+    \text{Show:} Find an element $y \in Y$ such that $y \neq F(x)$ for any $x \in X$
+\end{definition}
+
+\subsubsection{Exponential Functions}
+\subsubsection{Logarithmic Functions}
+
+\subsubsection{One-To-One Correspondences}
+\begin{definition}[One-To-One Correspondence]\label{def:one-to-one-correspondence}
+    A one-to-one correspondence (bijection) from sets $X$ to $Y$ is a function $F: X \to Y$
+    that is both one-to-one and onto.
+\end{definition}
+
+\subsection{Inverse Relations}
+
+\begin{definition}[Inverse Relation]\label{def:inverse-relation}
+    Let $R$ be a relation from $A$ to $B$. Define the inverse relation $R\inv$ from $B$ to $A$ as:
+    \begin{equation*}
+        R\inv = \{(y, x) \in B \times A \mid (x, y) \in \R \}
+    \end{equation*}
+    
+    This can be written operationally as:
+    \begin{equation*}
+        \text{For all $x \in A$ and $y \in B$, } (y, x) \in R\inv \iff (x,y) \in R
+    \end{equation*}
+\end{definition}
+
+\subsection{N-ary Relations}
+\begin{definition}[N-ary Relations]\label{def:n-ary-relations}
+    Given sets $A_1, A_2, ..., A_n$, an n-ary relation $R$ on $A_1 \times A_2 \times ... A_n$
+    is a subset of $A_1 \times A_2 \times ... A_n$. The special cases of 2-ary, 3-ary, 4-ary
+    relations are called binary, ternary, quaternary relations.
 \end{definition}
 
 \section{Sequences}
