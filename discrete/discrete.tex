@@ -1115,6 +1115,66 @@ To prove by mathematical induction, you need to follow these steps.
     relations are called binary, ternary, quaternary relations.
 \end{definition}
 
+\subsection{Properties of Relations}
+
+\begin{definition}[Reflexivity]\label{def:reflexivity}
+    Let $R$ be a relation on a set $A$.
+    \bl
+    $R$ is reflexive if, and only if, for every $x \in A$, $x \rel x$.
+
+    Equivalently:
+    \begin{equation*}
+        \text{$\rel$ is reflexive} \iff \text{ for every $x \in A$, $(x,x) \in \rel$}
+    \end{equation*}
+
+    Informally: A reflexive relation is one where:
+    \begin{itemize}
+        \centering
+        \item[] Each element is related to itself
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Symmetry]\label{def:symmetry}
+    Let $R$ be a relation on a set $A$.
+    \bl 
+    $R$ is symmetric if, and only if, for every $x,y \in A$, if $x \rel y$ then $y \rel x$.
+
+    Equivalently:
+    \begin{equation*}
+        \text{$\rel$ is symmetric} \iff \text{ for every $x,y \in A$, if $(x,y) \in \rel$ then $(y,x) \in \rel$}
+    \end{equation*}
+
+    Informally, a symmetric relation is one where:
+    \begin{align*}
+        \text{If } &\text{any one element is related to any other element,} \\
+                   &\text{then the second element is related to the first.} \\
+    \end{align*}
+    %\begin{itemize}
+        %\centering
+        %\item[] 
+            
+    %\end{itemize}
+\end{definition}
+
+\begin{definition}[Transitive]\label{def:transitive}
+    Let $R$ be a relation on a set $A$.
+    \bl
+    $R$ is transitive if, and only if, for every $x,y,z \in A$, if $x \rel y$ and $y \rel z$ then $x \rel z$.
+
+    Equivalently:
+    \begin{equation*}
+        \text{$\rel$ is transitive} \iff \text{ for every $x,y,z \in A$, if $(x,y) \in \rel$ and $(y,z) \in \rel$ then $(x,z) \in \rel$}
+    \end{equation*}
+
+    Informally, a transitive relation is one where:
+    \begin{itemize}
+        \centering
+        \item[] If any one element is related to a second,
+            and the second element is related to a third,
+            then the first element is related to the third.
+    \end{itemize}
+\end{definition}
+
 \section{Functions}
 
 \begin{definition}[Function]\label{def:function}
