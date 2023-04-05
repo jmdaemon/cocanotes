@@ -1065,13 +1065,6 @@ To prove by mathematical induction, you need to follow these steps.
 % Relations
 % Arrow Diagrams
 
-% Functions
-%   Function Machines
-%   One-To-One Functions
-%   Onto Functions
-%   One-To-One Correspondence
-
-%   Inverse Functions
 %   Exponential Functions
 %   Logarithmic Functions
 %   Function Composition
@@ -1098,6 +1091,8 @@ To prove by mathematical induction, you need to follow these steps.
     
 \end{definition}
 
+\subsection{Arrow Diagrams}
+% TODO:
 
 \subsection{Inverse Relations}
 
@@ -1248,9 +1243,31 @@ To prove a function is one-to-one on an infinite set, we will generally use the 
 
 \subsection{One-To-One Correspondences}
 \begin{definition}[One-To-One Correspondence]\label{def:one-to-one-correspondence}
-    A one-to-one correspondence (bijection) from sets $X$ to $Y$ is a function $F: X \to Y$
+    A one-to-one correspondence (bijection) from sets $X$ to $Y$ is a function $\fn{F}{X}{Y}$
     that is both one-to-one and onto.
 \end{definition}
+
+\subsection{Inverse Functions}
+
+\begin{definition}[Inverse Function]\label{def:inverse-fn}
+    Suppose $\fn{F}{X}{Y}$ is a one-to-one correspondence. Then there is a function $\fn{F\inv}{Y}{X}$ that is defined as:
+
+    Given any element $y \in Y$,
+    \begin{equation*}
+        F\inv(y) = \text{ the unique element $x \in X$ such that $F(x) = y$ }
+    \end{equation*}
+    or more formally:
+    \begin{equation*}
+        F\inv(y) = x \iff y = F(x)
+    \end{equation*}
+    
+    $F\inv$ is known as the inverse function for $F$.
+\end{definition}
+
+\begin{theorem}[Inverse Function Properties]\label{def:inverse-fn-props}
+    If $X$ and $Y$ are sets and $\fn{F}{X}{Y}$ is one-to-one and onto,
+    then $\fn{F\inv}{Y}{X}$ is also one-to-one and onto
+\end{theorem}
 
 \section{Sequences}
 
